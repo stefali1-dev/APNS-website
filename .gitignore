@@ -174,3 +174,13 @@ cython_debug/
 .pypirc
 
 djangoenv
+
+# Ignore Node modules for Django-Tailwind theme
+theme/static_src/node_modules/
+
+# Ignore build artifacts (if you use a build output directory, e.g., 'dist')
+theme/static_src/dist/
+
+# Optionally ignore log files from npm or yarn
+npm-debug.log*
+yarn-debug.log*
