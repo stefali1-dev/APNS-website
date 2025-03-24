@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "#yuvb+-@i03l^eyopj@1iw6_x_mhu((bby9gt1r=(9w_9le*ow"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['139-162-128-229.ip.linodeusercontent.com', 'localhost']
+ALLOWED_HOSTS = ['139-162-128-229.ip.linodeusercontent.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
