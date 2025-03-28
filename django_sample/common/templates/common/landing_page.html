@@ -2,408 +2,99 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Pagina principală
+APNC - Asociatia pentru Promovarea Nutritiei Sanatoase
 {% endblock %}
 
 {% block content %}
 {% load static %}
+<div class="min-h-screen bg-gradient from-emerald-50 to-green-50 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgMTBWNkw4IDhMNyA3TDYgOEw1IDdMNiA2VjJINFY2TDIgNEwxIDVMMCA0VjJMMiAwSDZMNCAyTDYgMFY0TDggMkwxMCA0VjBIMTJMNiA2VjEwSDEwVjZMMTIgOEwxNCA2VjEwSDEyVjE0SDhWMTBINloiIGZpbGw9IiNlNGY2ZWEiLz4KPC9zdmc+')]">
+  
+  <!-- Hero Section -->
+  <section class="relative h-96">
+    <img src="{% static 'common/images/apns.jpg' %}" alt="APNC Team" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+      <div class="text-center text-white">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">APNC</h1>
+        <p class="text-xl md:text-2xl">Promovăm nutriția sănătoasă în România</p>
+        <button class="mt-6 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all">
+          Donează acum
+        </button>
+      </div>
+    </div>
+  </section>
 
-<!-- HERO SECTION WITH TWEAKED BACKGROUND-POSITION -->
-<header 
-  class="relative w-full h-[80vh] bg-no-repeat bg-cover flex items-center justify-center overflow-hidden"
-  style="
-    background-image: url('{% static 'common/images/apns.jpg' %}');
-    background-position: center 20%;
-  "
->
-  <!-- Soft gradient overlay to keep text legible without hiding the faces -->
-  <div class="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-200 mix-blend-multiply"></div>
+  <!-- Events Section -->
+  <section class="py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Evenimente viitoare</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {% for event in events|slice:":3" %}
+      <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+        <div class="text-green-600 font-bold mb-2">{{ event.date }}</div>
+        <h3 class="text-xl font-semibold mb-2">{{ event.title }}</h3>
+        <p class="text-gray-600 mb-4">{{ event.description|truncatechars:100 }}</p>
+        <a href="#" class="text-green-600 font-semibold hover:text-green-700">Află mai multe →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 
-  <!-- Hero Text Container with subtle fade/zoom effect on hover -->
-  <div 
-    class="relative z-10 text-center bg-white/80 p-8 rounded shadow-lg transition-transform duration-500 hover:scale-105"
-  >
-    <h1 class="text-3xl md:text-5xl font-extrabold text-green-900 mb-4">
-      Sprijinul tău face posibilă o alimentație sănătoasă
-    </h1>
-    <p class="text-lg text-green-800 mb-6">
-      Ajută-ne să oferim resurse accesibile, cursuri de gătit live și planuri de mese potrivite 
-      pentru persoanele cu diabet, obezitate sau boli cardiovasculare. 
-      Împreună, putem face ca alimentația nutritivă să devină parte din viața de zi cu zi pentru toți.
-    </p>
-    <a
-      href="#"
-      class="inline-block bg-white text-green-600 hover:text-green-700 font-medium px-6 py-3 rounded shadow-md transition-colors duration-300"
-    >
-      Vreau să ajut
-    </a>
-  </div>
-</header>
-
-<!-- QUICK LINKS / TILES SECTION (WITH ANIMATIONS & INTERACTIVE HOVER) -->
-<section class="max-w-screen-xl mx-auto px-6 py-16 -mt-10 relative z-20">
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-    <!-- Tile 1 -->
-    <div 
-      class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1587303150937-242321636270"
-        alt="Pictogramă prevenire diabet"
-        class="w-16 h-16 mb-4"
-      />
-      <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
-        Prevenirea Diabetului
-      </h3>
-      <a
-        href="#"
-        class="text-green-700 hover:text-green-900 underline text-sm"
-      >
-        Află mai multe
-      </a>
-    </div>
-    <!-- Tile 2 -->
-    <div 
-      class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1611078486830-9f6edf3e6be6"
-        alt="Pictogramă prediabet"
-        class="w-16 h-16 mb-4"
-      />
-      <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
-        Prediabet
-      </h3>
-      <a
-        href="#"
-        class="text-green-700 hover:text-green-900 underline text-sm"
-      >
-        Află mai multe
-      </a>
-    </div>
-    <!-- Tile 3 -->
-    <div 
-      class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1562813733-6a710ce3f6eb"
-        alt="Pictogramă diagnostic nou"
-        class="w-16 h-16 mb-4"
-      />
-      <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
-        Diagnostic Nou
-      </h3>
-      <a
-        href="#"
-        class="text-green-700 hover:text-green-900 underline text-sm"
-      >
-        Află mai multe
-      </a>
-    </div>
-    <!-- Tile 4 -->
-    <div 
-      class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1595433562696-eafba08da97c"
-        alt="Pictogramă diabet de tip 2"
-        class="w-16 h-16 mb-4"
-      />
-      <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
-        Diabet de Tip 2
-      </h3>
-      <a
-        href="#"
-        class="text-green-700 hover:text-green-900 underline text-sm"
-      >
-        Află mai multe
-      </a>
-    </div>
-    <!-- Tile 5: Obezitate -->
-    <div 
-      class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1603398938378-b2a6a687f5e8"
-        alt="Pictogramă obezitate"
-        class="w-16 h-16 mb-4"
-      />
-      <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
-        Obezitate
-      </h3>
-      <a
-        href="#"
-        class="text-green-700 hover:text-green-900 underline text-sm"
-      >
-        Află mai multe
-      </a>
-    </div>
-    <!-- Tile 6: Boli cardiovasculare -->
-    <div 
-      class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528"
-        alt="Pictogramă boli cardiovasculare"
-        class="w-16 h-16 mb-4"
-      />
-      <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
-        Boli Cardiovasculare
-      </h3>
-      <a
-        href="#"
-        class="text-green-700 hover:text-green-900 underline text-sm"
-      >
-        Află mai multe
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- "CE SE ÎNTÂMPLĂ ACUM?" - NEWS/EVENTS SECTION WITH HOVER SCALE ANIMATION -->
-<section class="bg-gray-50 py-16">
-  <div class="max-w-screen-xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-green-700 mb-8">Ce se întâmplă acum?</h2>
-    <p class="text-lg text-gray-600 mb-10">
-      Află despre evenimentele viitoare, noutăți în cercetare și resurse 
-      pentru a mânca mai sănătos și a trăi mai bine, indiferent dacă te confrunți cu diabet, 
-      obezitate sau boli cardiovasculare.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div class="bg-white rounded-lg shadow p-6 transition-transform duration-300 hover:scale-105">
-        <img
-          src="https://images.unsplash.com/photo-1589923188900-69ee6e2e0f11"
-          alt="Card 1"
-          class="rounded-lg mb-4 w-full h-48 object-cover"
-        />
-        <div class="mb-3 text-green-600 font-semibold text-sm uppercase">
-          Magazin
+  <!-- Health Issues Section -->
+  <section class="py-16 px-4 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Probleme comune</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="text-center p-6">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
         </div>
-        <h3 class="text-xl font-semibold mb-2 text-gray-800">
-          Reducere de 25% la Instrumente Nutriționale
-        </h3>
-        <p class="text-gray-600 mb-4">
-          Achiziționează farfurii speciale pentru porții, resurse de gătit sănătos și multe altele. 
-          Codul cuponului: VERDE25
-        </p>
-        <a
-          href="#"
-          class="text-green-700 hover:text-green-900 font-medium"
-        >
-          Cumpără acum &rarr;
-        </a>
+        <h3 class="text-xl font-semibold mb-2">Obezitatea</h3>
+        <p class="text-gray-600">Strategii de prevenire și management</p>
       </div>
+      <!-- Repeat similar blocks for other issues -->
+    </div>
+  </section>
 
-      <!-- Card 2 -->
-      <div class="bg-white rounded-lg shadow p-6 transition-transform duration-300 hover:scale-105">
-        <img
-          src="https://images.unsplash.com/photo-1551373878-fc1ebdc44ece"
-          alt="Card 2"
-          class="rounded-lg mb-4 w-full h-48 object-cover"
-        />
-        <div class="mb-3 text-green-600 font-semibold text-sm uppercase">
-          Conferințe
+  <!-- Values Section -->
+  <section class="py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Valorile noastre</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-green-50 rounded-xl p-6">
+        <img src="{% static 'path/to/education-image.jpg' %}" alt="Education" class="w-full h-48 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-semibold mb-2">Educație</h3>
+        <p class="text-gray-600">Promovăm educație nutrițională accesibilă</p>
+      </div>
+      <!-- Repeat for other values -->
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="py-16 px-4 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Ultimele articole</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {% for post in blog_posts|slice:":3" %}
+      <div class="border rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">{{ post.title }}</h3>
+          <p class="text-gray-600">{{ post.excerpt|truncatechars:100 }}</p>
         </div>
-        <h3 class="text-xl font-semibold mb-2 text-gray-800">
-          Conferința de Nutriție 2025
-        </h3>
-        <p class="text-gray-600 mb-4">
-          Participă la prezentări despre cele mai noi descoperiri și inovații 
-          în nutriție și cercetarea privind diabetul, obezitatea și bolile cardiovasculare.
-        </p>
-        <a
-          href="#"
-          class="text-green-700 hover:text-green-900 font-medium"
-        >
-          Înregistrează-te acum &rarr;
-        </a>
       </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white rounded-lg shadow p-6 transition-transform duration-300 hover:scale-105">
-        <img
-          src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
-          alt="Card 3"
-          class="rounded-lg mb-4 w-full h-48 object-cover"
-        />
-        <div class="mb-3 text-green-600 font-semibold text-sm uppercase">
-          Cercetare
-        </div>
-        <h3 class="text-xl font-semibold mb-2 text-gray-800">
-          Repere în Cercetarea din 2024
-        </h3>
-        <p class="text-gray-600 mb-4">
-          Descoperă progresul recent în înțelegerea, prevenirea și tratamentul 
-          diabetului, obezității și bolilor cardiovasculare.
-        </p>
-        <a
-          href="#"
-          class="text-green-700 hover:text-green-900 font-medium"
-        >
-          Citește acum &rarr;
-        </a>
-      </div>
+      {% empty %}
+      <p class="text-center">Nu există articole recente</p>
+      {% endfor %}
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- STATS SECTION WITH ANIMATED HOVER -->
-<section class="relative py-16 bg-white">
-  <div class="max-w-screen-xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-green-700 mb-8">
-      Diabet, Obezitate și Boli Cardiovasculare în Cifre
-    </h2>
-    <p class="text-lg text-gray-600 mb-10">
-      Aceste afecțiuni afectează milioane de oameni, dar împreună putem produce o schimbare.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="p-6 bg-green-50 rounded shadow-sm flex flex-col items-center transition-transform duration-300 hover:scale-105">
-        <div class="text-5xl font-bold text-green-700 mb-2">1,2M</div>
-        <p class="text-center text-gray-700">
-          Americani sunt diagnosticați cu diabet în fiecare an
-        </p>
-      </div>
-      <div class="p-6 bg-green-50 rounded shadow-sm flex flex-col items-center transition-transform duration-300 hover:scale-105">
-        <div class="text-5xl font-bold text-green-700 mb-2">40%</div>
-        <p class="text-center text-gray-700">
-          dintre adulți suferă de obezitate
-        </p>
-      </div>
-      <div class="p-6 bg-green-50 rounded shadow-sm flex flex-col items-center transition-transform duration-300 hover:scale-105">
-        <div class="text-5xl font-bold text-green-700 mb-2">17.9M</div>
-        <p class="text-center text-gray-700">
-          decese globale anuale cauzate de boli cardiovasculare
-        </p>
-      </div>
+  <!-- Donate Section -->
+  <section class="py-16 px-4 bg-green-600 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Susține misiunea noastră</h2>
+      <p class="text-lg mb-8">Fiecare contribuție ne ajută să creăm un viitor mai sănătos</p>
+      <button class="bg-white text-green-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all">
+        Donează acum
+      </button>
     </div>
-
-    <p class="text-lg text-gray-600 mt-10">
-      Există însă speranță. Alătură-te nouă și contribuie la prevenirea și tratarea 
-      mai eficientă a acestor afecțiuni și, într-o bună zi, la descoperirea unui tratament definitiv.
-    </p>
-
-    <!-- Buttons -->
-    <div class="mt-8 flex flex-col md:flex-row gap-4">
-      <a
-        href="#"
-        class="inline-block bg-green-600 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 transition-colors duration-300"
-      >
-        Devino Avocat
-      </a>
-      <a
-        href="#"
-        class="inline-block border-2 border-green-600 text-green-600 font-semibold px-6 py-3 rounded shadow-md hover:bg-green-600 hover:text-white transition-colors duration-300"
-      >
-        Împărtășește Povestea Ta
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CALL TO ACTION BANNER WITH HOVER GLOW -->
-<section class="w-full bg-green-600 text-white py-16">
-  <div class="max-w-screen-xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">Ești la risc?</h2>
-    <p class="text-lg mb-8">
-      Completează testul nostru de 60 de secunde pentru a vedea cum poți preveni sau amâna apariția 
-      diabetului de tip 2 și a altor afecțiuni asociate.
-    </p>
-    <div class="flex flex-col md:flex-row justify-center gap-4">
-      <a
-        href="#"
-        class="bg-white text-green-600 font-medium px-6 py-3 rounded shadow-md hover:text-green-700 transition-transform duration-300 hover:scale-105"
-      >
-        Fă Testul
-      </a>
-      <a
-        href="#"
-        class="border-2 border-white text-white font-medium px-6 py-3 rounded hover:bg-white hover:text-green-600 transition-transform duration-300 hover:scale-105"
-      >
-        Află despre Prediabet
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ADDITIONAL INFO SECTION (CARDS WITH SLIGHT HOVER LIFT) -->
-<section class="py-16 bg-gray-50">
-  <div class="max-w-screen-xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-      <!-- Left column -->
-      <div class="bg-white rounded-lg shadow p-8 transition-transform duration-300 hover:-translate-y-1">
-        <h2 class="text-2xl font-bold mb-4 text-green-700">Viața cu Diabet</h2>
-        <p class="text-gray-700 mb-6">
-          Fie că ai fost diagnosticat recent sau ajuți pe cineva drag, descoperă sfaturi despre controlul glicemiei, 
-          recunoașterea complicațiilor și utilizarea tehnologiei de monitorizare și administrare a medicației.
-        </p>
-        <a
-          href="#"
-          class="inline-block bg-green-600 text-white px-6 py-3 rounded shadow hover:bg-green-700"
-        >
-          Află mai multe
-        </a>
-      </div>
-
-      <!-- Right column -->
-      <div class="bg-white rounded-lg shadow p-8 transition-transform duration-300 hover:-translate-y-1">
-        <h2 class="text-2xl font-bold mb-4 text-green-700">Sănătate &amp; Bunăstare</h2>
-        <p class="text-gray-700 mb-6">
-          De la alegeri alimentare mai bune și gestionarea greutății până la sfaturi de exerciții fizice, 
-          te ajutăm să ai un stil de viață sănătos. Inspiră-te din poveștile reale de transformare, planuri 
-          de fitness și recomandări despre cumpărături sănătoase la preț accesibil.
-        </p>
-        <a
-          href="#"
-          class="inline-block bg-green-600 text-white px-6 py-3 rounded shadow hover:bg-green-700"
-        >
-          Începe acum
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GET INVOLVED (DONATE / FUNDRAISING / EVENTS) SECTION -->
-<section class="py-16 bg-white">
-  <div class="max-w-screen-xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row md:items-center gap-8">
-      <!-- Text -->
-      <div class="md:w-1/2">
-        <h2 class="text-3xl font-bold text-green-700 mb-4">Donează Astăzi</h2>
-        <p class="text-gray-700 mb-6">
-          Suntem dedicați susținerii cercetării pentru a găsi tratamente mai bune—și, în cele din urmă, 
-          un leac. Donațiile tale finanțează cursurile noastre, demonstrațiile de gătit și resursele esențiale 
-          pentru adoptarea unui stil de viață mai sănătos.
-        </p>
-        <a
-          href="#"
-          class="inline-block bg-green-600 text-white px-6 py-3 rounded shadow hover:bg-green-700 transition-colors duration-300"
-        >
-          Donează Acum
-        </a>
-      </div>
-
-      <!-- Image with subtle hover rise & shadow effect -->
-      <div class="md:w-1/2 flex justify-center">
-        <img
-          src="{% static 'common/images/donate.png' %}"
-          alt="Donație"
-          class="w-full rounded-lg shadow transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-green-800 text-white py-8">
-  <div class="max-w-screen-xl mx-auto px-6 text-center">
-    <p class="text-sm">
-      &copy; 2025 Asociația pentru Nutriție Sănătoasă. Toate drepturile rezervate.
-    </p>
-  </div>
-</footer>
+  </section>
+</div>
 {% endblock %}
