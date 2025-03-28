@@ -7,94 +7,662 @@ APNC - Asociatia pentru Promovarea Nutritiei Sanatoase
 
 {% block content %}
 {% load static %}
-<div class="min-h-screen bg-gradient from-emerald-50 to-green-50 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgMTBWNkw4IDhMNyA3TDYgOEw1IDdMNiA2VjJINFY2TDIgNEwxIDVMMCA0VjJMMiAwSDZMNCAyTDYgMFY0TDggMkwxMCA0VjBIMTJMNiA2VjEwSDEwVjZMMTIgOEwxNCA2VjEwSDEyVjE0SDhWMTBINloiIGZpbGw9IiNlNGY2ZWEiLz4KPC9zdmc+')]">
+
+
+
+  <!-- Header / Hero Section -->
+  <header class="w-full bg-green-700 text-white rounded-lg">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center px-6 py-10">
+      <!-- Text content -->
+      <div class="md:w-1/2 flex flex-col justify-center">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          Your Support Fuels Healthy Eating
+        </h1>
+        <p class="text-lg mb-6">
+          Help us provide accessible resources, live cooking classes, and
+          diabetes-friendly meal plans to our community. Together, we can make
+          nutritious foods a part of everyone’s daily life.
+        </p>
+        <a
+          href="#"
+          class="inline-block bg-white text-green-600 hover:text-green-700 font-medium px-6 py-3 rounded shadow-md transition-colors duration-300"
+        >
+          I Want to Help
+        </a>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="md:w-1/2 mt-8 md:mt-0 md:pl-10">
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="static/common/images/apns.png"
+            alt="A person preparing healthy food"
+            class="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-white mt-20">
+    <div class="max-w-screen-xl px-4 pb-8 mx-auto sm:pb-16 lg:pb-24">
+      <div class="space-y-8 lg:space-y-20">
+        <div class="items-center gap-8 xl:gap-16 md:grid md:grid-cols-2">
+          <img class="w-full rounded-lg shadow-lg hidden sm:block" src="static/common/images/image1.png" alt="">
   
-  <!-- Hero Section -->
-  <section class="relative h-96">
-    <img src="{% static 'common/images/apns.jpg' %}" alt="APNC Team" class="w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-      <div class="text-center text-white">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">APNC</h1>
-        <p class="text-xl md:text-2xl">Promovăm nutriția sănătoasă în România</p>
-        <button class="mt-6 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all">
-          Donează acum
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Events Section -->
-  <section class="py-16 px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Evenimente viitoare</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {% for event in events|slice:":3" %}
-      <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-        <div class="text-green-600 font-bold mb-2">{{ event.date }}</div>
-        <h3 class="text-xl font-semibold mb-2">{{ event.title }}</h3>
-        <p class="text-gray-600 mb-4">{{ event.description|truncatechars:100 }}</p>
-        <a href="#" class="text-green-600 font-semibold hover:text-green-700">Află mai multe →</a>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-
-  <!-- Health Issues Section -->
-  <section class="py-16 px-4 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Probleme comune</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="text-center p-6">
-        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-          </svg>
+          <div class="mt-0">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              Org Green is a climate change non-profit organization.
+            </h2>
+            <p class="mb-6 text-gray-500 md:text-lg">
+              Org helps you connect with friends, family and communities of people who share your
+              interests. Connecting with your friends and family as well as discovering new ones is easy
+              with features like Groups.
+            </p>
+            <div class="flex items-center gap-4">
+              <a href="#"
+                class="inline-flex items-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                Get involved
+                <svg class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </a>
+  
+              <a href="#"
+                class="text-gray-900 border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:ring-gray-100 justify-center inline-flex items-center focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                role="button">
+                Learn more
+              </a>
+            </div>
+          </div>
         </div>
-        <h3 class="text-xl font-semibold mb-2">Obezitatea</h3>
-        <p class="text-gray-600">Strategii de prevenire și management</p>
-      </div>
-      <!-- Repeat similar blocks for other issues -->
-    </div>
-  </section>
-
-  <!-- Values Section -->
-  <section class="py-16 px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Valorile noastre</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="bg-green-50 rounded-xl p-6">
-        <img src="{% static 'path/to/education-image.jpg' %}" alt="Education" class="w-full h-48 object-cover rounded-lg mb-4">
-        <h3 class="text-xl font-semibold mb-2">Educație</h3>
-        <p class="text-gray-600">Promovăm educație nutrițională accesibilă</p>
-      </div>
-      <!-- Repeat for other values -->
-    </div>
-  </section>
-
-  <!-- Blog Preview -->
-  <section class="py-16 px-4 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Ultimele articole</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {% for post in blog_posts|slice:":3" %}
-      <div class="border rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">{{ post.title }}</h3>
-          <p class="text-gray-600">{{ post.excerpt|truncatechars:100 }}</p>
+  
+        <div class="items-center gap-8 xl:gap-16 md:grid md:grid-cols-2">
+          <div class="mb-4 md:mb-0">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              Protect our earth against climate change and pollution.
+            </h2>
+            <p class="mb-6 text-gray-500 md:text-lg">
+              Org helps you connect with friends, family and communities of people who share your
+              interests. Connecting with your friends and family as well as discovering new ones is easy
+              with features like Groups.
+            </p>
+            <div class="flex items-center gap-4">
+              <a href="#"
+                class="inline-flex items-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                View all activities
+                <svg class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+  
+          <img class="w-full rounded-lg shadow-lg hidden sm:block" src="static/common/images/donate.png" alt="">
         </div>
       </div>
-      {% empty %}
-      <p class="text-center">Nu există articole recente</p>
-      {% endfor %}
+    </div>
+  </section>
+  
+  <section class="border-b border-gray-100 bg-gray-50">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-16 lg:py-24">
+      <div class="space-y-8 text-center md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+        <div>
+          <div
+            class="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-lg bg-green-100 lg:h-12 lg:w-12">
+            <svg class="w-5 h-5 text-green-700 lg:w-6 lg:h-6" fill="currentColor"
+              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold text-gray-900">
+            First rate devs & designers
+          </h3>
+          <p class="text-gray-500">
+            We bring the community back together in person! It’s something magical about bringing hundreds of people
+            together in the
+            same location.
+          </p>
+        </div>
+  
+        <div>
+          <div
+            class="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-lg bg-green-100 lg:h-12 lg:w-12">
+            <svg class="w-5 h-5 text-green-700 lg:w-6 lg:h-6" fill="currentColor"
+              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold text-gray-900">
+            Affordable
+          </h3>
+          <p class="text-gray-500">
+            We want anyone in the industry to be able to come, which means keeping tickets reasonably priced (thanks
+            largely to our
+            generous sponsors).
+          </p>
+        </div>
+  
+        <div>
+          <div
+            class="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-lg bg-green-100 lg:h-12 lg:w-12">
+            <svg class="w-5 h-5 text-green-700 lg:w-6 lg:h-6" fill="currentColor"
+              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold text-gray-900">
+            For everyone in the community
+          </h3>
+          <p class="text-gray-500">
+            Our community is dedicated to providing an inclusive, enjoyable experience for everyone in the tech and design
+            industry.
+          </p>
+        </div>
+  
+        <div>
+          <div
+            class="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-lg bg-green-100 lg:h-12 lg:w-12">
+            <svg class="w-5 h-5 text-green-700 lg:w-6 lg:h-6" fill="currentColor"
+              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold text-gray-900">
+            Money prizes
+          </h3>
+          <p class="text-gray-500">
+            Amazing cash prizes can often be included in prize bundles where you win prizes including items, or courses,
+            holidays
+            and more.
+          </p>
+        </div>
+  
+        <div>
+          <div
+            class="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-lg bg-green-100 lg:h-12 lg:w-12">
+            <svg class="w-5 h-5 text-green-700 lg:w-6 lg:h-6" fill="currentColor"
+              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold text-gray-900">
+            Level-up
+          </h3>
+          <p class="text-gray-500">
+            Take your skills up a notch by attending one of the in-person workshops from the best experts in the tech and
+            design
+            industry.
+          </p>
+        </div>
+  
+        <div>
+          <div
+            class="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-lg bg-green-100 lg:h-12 lg:w-12">
+            <svg class="w-5 h-5 text-green-700 lg:w-6 lg:h-6" fill="currentColor"
+              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold text-gray-900">
+            Make new connections
+          </h3>
+          <p class="text-gray-500">
+            We bring the community back together in person! It’s something magical about bringing hundreds of people
+            together in the
+            same location.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="bg-white">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-16 lg:py-24">
+        <div class="grid items-center grid-cols-1 gap-12 xl:grid-cols-3 lg:gap-16">
+            <div class="space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Designed for strong teams like yours
+                </h2>
+                <p class="text-gray-500 sm:text-xl">
+                    Here we focus on markets where creativity and innovation can unlock long-term value and growth.
+                </p>
+                <div>
+                    <a href="#"
+                       class="inline-flex items-center text-lg font-medium text-green-700 hover:underline">
+                        Learn more
+                        <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 xl:col-span-2 sm:grid-cols-2">
+                <div>
+                    <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                        <svg class="w-8 h-8 text-green-700" fill="currentColor"
+                             viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold text-gray-900">
+                        Marketing
+                    </h3>
+                    <p class="mt-2 text-gray-500">
+                        Collaborate seamlessly with all the organization and hit your marketing goals every month with
+                        our marketing plan.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                        <svg class="w-8 h-8 text-green-700" fill="currentColor"
+                             viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                                  clip-rule="evenodd"></path>
+                            <path
+                                d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold text-gray-900">
+                        Business Automation
+                    </h3>
+                    <p class="mt-2 text-gray-500">
+                        Auto-assign tasks, send Slack messages, and much more. Now power up with hundreds of new
+                        templates to help you get started.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                        <svg class="w-8 h-8 text-green-700" fill="currentColor"
+                             viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold text-gray-900">
+                        Enterprise Design
+                    </h3>
+                    <p class="mt-2 text-gray-500">
+                        Craft beautiful, delightful experiences for both marketing and product with real cross-company
+                        collaboration.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                        <svg class="w-8 h-8 text-green-700" fill="currentColor"
+                             viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z">
+                            </path>
+                            <path fill-rule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold text-gray-900">
+                        Finance
+                    </h3>
+                    <p class="mt-2 text-gray-500">
+                        Audit-proof software built for critical financial operations like month-end close and quarterly
+                        budgeting.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Quick Links / Tiles Section -->
+  <section class="max-w-screen-xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Tile 1 -->
+      <div class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm">
+        <img
+          src="https://images.unsplash.com/photo-1587303150937-242321636270"
+          alt="Icon 1"
+          class="w-16 h-16 mb-4"
+        />
+        <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
+          Diabetes Prevention
+        </h3>
+        <a
+          href="#"
+          class="text-green-700 hover:text-green-900 underline text-sm"
+        >
+          Learn More
+        </a>
+      </div>
+      <!-- Tile 2 -->
+      <div class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm">
+        <img
+          src="https://images.unsplash.com/photo-1611078486830-9f6edf3e6be6"
+          alt="Icon 2"
+          class="w-16 h-16 mb-4"
+        />
+        <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
+          Prediabetes
+        </h3>
+        <a
+          href="#"
+          class="text-green-700 hover:text-green-900 underline text-sm"
+        >
+          Learn More
+        </a>
+      </div>
+      <!-- Tile 3 -->
+      <div class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm">
+        <img
+          src="https://images.unsplash.com/photo-1562813733-6a710ce3f6eb"
+          alt="Icon 3"
+          class="w-16 h-16 mb-4"
+        />
+        <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
+          Newly Diagnosed
+        </h3>
+        <a
+          href="#"
+          class="text-green-700 hover:text-green-900 underline text-sm"
+        >
+          Learn More
+        </a>
+      </div>
+      <!-- Tile 4 -->
+      <div class="bg-green-50 p-5 flex flex-col items-center rounded-lg shadow-sm">
+        <img
+          src="https://images.unsplash.com/photo-1595433562696-eafba08da97c"
+          alt="Icon 4"
+          class="w-16 h-16 mb-4"
+        />
+        <h3 class="text-lg font-semibold mb-2 text-green-700 text-center">
+          Type 2 Diabetes
+        </h3>
+        <a
+          href="#"
+          class="text-green-700 hover:text-green-900 underline text-sm"
+        >
+          Learn More
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Donate Section -->
-  <section class="py-16 px-4 bg-green-600 text-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Susține misiunea noastră</h2>
-      <p class="text-lg mb-8">Fiecare contribuție ne ajută să creăm un viitor mai sănătos</p>
-      <button class="bg-white text-green-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all">
-        Donează acum
-      </button>
+  <!-- "What's Happening?" Cards Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-green-700 mb-8">What's Happening?</h2>
+      <p class="text-lg text-gray-600 mb-10">
+        Explore upcoming events, new research, and resources to eat healthier
+        and live better.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <img
+            src="https://images.unsplash.com/photo-1589923188900-69ee6e2e0f11"
+            alt="Card 1"
+            class="rounded-lg mb-4 w-full h-48 object-cover"
+          />
+          <div class="mb-3 text-green-600 font-semibold text-sm uppercase">
+            Shop
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">
+            25% Off Nutrition Tools
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Stock up on our recommended portion plates, healthy cooking
+            resources, and more. Coupon code: GREEN25
+          </p>
+          <a
+            href="#"
+            class="text-green-700 hover:text-green-900 font-medium"
+            >Shop Now &rarr;</a
+          >
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <img
+            src="https://images.unsplash.com/photo-1551373878-fc1ebdc44ece"
+            alt="Card 2"
+            class="rounded-lg mb-4 w-full h-48 object-cover"
+          />
+          <div class="mb-3 text-green-600 font-semibold text-sm uppercase">
+            Meetings
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">
+            2025 Nutrition Conference
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Join us for the latest insights and breakthroughs in nutrition and
+            diabetes research.
+          </p>
+          <a
+            href="#"
+            class="text-green-700 hover:text-green-900 font-medium"
+            >Register Now &rarr;</a
+          >
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+            alt="Card 3"
+            class="rounded-lg mb-4 w-full h-48 object-cover"
+          />
+          <div class="mb-3 text-green-600 font-semibold text-sm uppercase">
+            Research
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">
+            2024 Research Highlights
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Discover recent advancements in diabetes understanding, prevention,
+            and treatment.
+          </p>
+          <a
+            href="#"
+            class="text-green-700 hover:text-green-900 font-medium"
+            >Read Now &rarr;</a
+          >
+        </div>
+      </div>
     </div>
   </section>
-</div>
+
+  <!-- Stats Section -->
+  <section class="relative py-16 bg-white">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-green-700 mb-8">
+        Diabetes by the Numbers
+      </h2>
+      <p class="text-lg text-gray-600 mb-10">
+        Diabetes impacts millions, but together we can drive change.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-green-50 rounded shadow-sm flex flex-col items-center">
+          <div class="text-5xl font-bold text-green-700 mb-2">1.2M</div>
+          <p class="text-center text-gray-700">
+            Americans are diagnosed each year
+          </p>
+        </div>
+        <div class="p-6 bg-green-50 rounded shadow-sm flex flex-col items-center">
+          <div class="text-5xl font-bold text-green-700 mb-2">11.6%</div>
+          <p class="text-center text-gray-700">
+            of Americans had diabetes in 2023
+          </p>
+        </div>
+        <div class="p-6 bg-green-50 rounded shadow-sm flex flex-col items-center">
+          <div class="text-5xl font-bold text-green-700 mb-2">97.6M</div>
+          <p class="text-center text-gray-700">
+            American adults have prediabetes
+          </p>
+        </div>
+      </div>
+
+      <p class="text-lg text-gray-600 mt-10">
+        But there’s hope. Join us and help drive prevention, better treatment
+        options, and — one day — a cure.
+      </p>
+
+      <!-- Buttons -->
+      <div class="mt-8 flex flex-col md:flex-row gap-4">
+        <a
+          href="#"
+          class="inline-block bg-green-600 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 transition-colors duration-300"
+        >
+          Become an Advocate
+        </a>
+        <a
+          href="#"
+          class="inline-block border-2 border-green-600 text-green-600 font-semibold px-6 py-3 rounded shadow-md hover:bg-green-600 hover:text-white transition-colors duration-300"
+        >
+          Share Your Story
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section class="w-full bg-green-600 text-white py-16">
+    <div class="max-w-screen-xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Are You at Risk?</h2>
+      <p class="text-lg mb-8">
+        Take our 60-second risk test to learn how you can take action to prevent
+        or delay type 2 diabetes.
+      </p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a
+          href="#"
+          class="bg-white text-green-600 font-medium px-6 py-3 rounded shadow-md hover:text-green-700 transition-colors duration-300"
+        >
+          Take the Test
+        </a>
+        <a
+          href="#"
+          class="border-2 border-white text-white font-medium px-6 py-3 rounded hover:bg-white hover:text-green-600 transition-colors duration-300"
+        >
+          Learn About Prediabetes
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Info Section (Food & Nutrition, Tools & Resources, etc.) -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Left column -->
+        <div class="bg-white rounded-lg shadow p-8">
+          <h2 class="text-2xl font-bold mb-4 text-green-700">Life with Diabetes</h2>
+          <p class="text-gray-700 mb-6">
+            Whether you're newly diagnosed or helping out a loved one, get tips
+            on controlling blood sugar, recognizing complications, and using the
+            latest technology for blood glucose monitoring and medication
+            management.
+          </p>
+          <a
+            href="#"
+            class="inline-block bg-green-600 text-white px-6 py-3 rounded shadow hover:bg-green-700"
+          >
+            Learn More
+          </a>
+        </div>
+
+        <!-- Right column -->
+        <div class="bg-white rounded-lg shadow p-8">
+          <h2 class="text-2xl font-bold mb-4 text-green-700">Health &amp; Wellness</h2>
+          <p class="text-gray-700 mb-6">
+            From better food choices and weight management to exercise tips,
+            we're here to help you thrive. Get inspired by real stories of
+            transformation, fitness plans, and advice on affordable healthy
+            groceries.
+          </p>
+          <a
+            href="#"
+            class="inline-block bg-green-600 text-white px-6 py-3 rounded shadow hover:bg-green-700"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved (Donate / Fundraising / Events) -->
+  <section class="py-16 bg-white">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-center gap-8">
+        <!-- Text -->
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold text-green-700 mb-4">Donate Today</h2>
+          <p class="text-gray-700 mb-6">
+            We are dedicated to furthering research to help find better
+            treatments—and eventually, a cure. Your support funds our classes,
+            cooking demonstrations, and essential resources for healthier
+            lifestyles.
+          </p>
+          <a
+            href="#"
+            class="inline-block bg-green-600 text-white px-6 py-3 rounded shadow hover:bg-green-700 transition-colors duration-300"
+          >
+            Donate Now
+          </a>
+        </div>
+
+        <!-- Image -->
+        <div class="md:w-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1600891964364-c2b4be56a37b"
+            alt="Donation"
+            class="w-full rounded-lg shadow"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-800 text-white py-8">
+    <div class="max-w-screen-xl mx-auto px-6 text-center">
+      <p class="text-sm">
+        &copy; 2025 Healthy Nutrition Association. All rights reserved.
+      </p>
+    </div>
+  </footer>
 {% endblock %}

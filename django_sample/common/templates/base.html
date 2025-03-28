@@ -8,9 +8,9 @@
     {% tailwind_css %}
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   </head>
-  <body>
+  <body class="font-sans text-gray-700 bg-white antialiased">
     {% include "common/navbar.html" %}
-    <div class="container w-full max-w-screen-xl mx-auto px-4 py-4">
+    <div class="container w-full mx-auto px-4 py-4">
       {% block content %}{% endblock %}
   </div>
   </body>
