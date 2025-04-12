@@ -1,361 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuna Charity</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="font-sans antialiased text-gray-900">
-  <!-- Top Bar -->
-  <div class="bg-primary text-white">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <!-- Contact Info -->
-      <div class="flex space-x-6">
-        <div class="flex items-center space-x-1">
-          <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/phone-icon.png" alt="Phone Icon" class="w-4" />
-          <span class="text-sm">+123 986 8764</span>
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+<section class="bg-white py-16">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Ultimele articole</h2>
+    <p class="text-lg text-gray-600 mb-10">
+      Află cele mai recente informații din domeniul nutriției și sănătății
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {% for post in posts %}
+      <div class="bg-white rounded-lg shadow-lg drop-shadow-lg p-6">
+        {% if post.image %}
+        <img
+          src="{{ post.image.url }}"
+          alt="{{ post.title }}"
+          class="rounded-lg mb-4 w-full h-48 object-cover transition-transform"
+          width="400"
+          height="200"
+        />
+        {% endif %}
+        <div class="mb-3 text-green-600 font-semibold text-sm uppercase">
+          {{ post.category.name|default:"General" }}
         </div>
-        <div class="flex items-center space-x-1">
-          <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/email-icon.png" alt="Email Icon" class="w-4 h-4" />
-          <span class="text-sm">info@charity.org</span>
-        </div>
-      </div>
-      <!-- Social Links -->
-      <div class="flex space-x-3">
-        <a href="https://facebook.com" class="hover:text-gray-300" aria-label="Facebook">
-          <!-- Replace ... with your actual SVG path data -->
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"></path>
-          </svg>
+        <a href="{{ post.get_absolute_url }}" >
+          <h3 class="text-xl font-semibold mb-2 text-gray-800 hover:underline cursor-pointer">{{ post.title }}</h3>
         </a>
-        <a href="https://instagram.com" class="hover:text-gray-300" aria-label="Instagram">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673
-            c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637s-0.009,2.688-0.052,3.637
-            c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035c-0.315,0.315-0.615,0.51-1.035,0.673
-            c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31
-            c-0.42-0.163-0.72-0.358-1.035-0.673c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671
-            C4.631,14.688,4.622,14.403,4.622,12s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671
-            c0.163-0.42,0.358-0.72,0.673-1.035c0.315-0.315,0.615-0.51,1.035-0.673C8.366,4.809,8.843,4.662,9.72,4.622
-            C10.68,4.58,10.987,4.57,13.391,4.57L12,4.622z"></path>
-          </svg>
-        </a>
-        <a href="https://youtube.com" class="hover:text-gray-300" aria-label="YouTube">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M21.8,8.001c0,0-0.195-1.378-0.795-1.985c-0.76-0.797-1.613-0.801-2.004-0.847
-            c-2.799-0.202-6.997-0.202-6.997-0.202h-0.009c0,0-4.198,0-6.997,0.202C4.608,5.216,3.756,5.22,2.995,6.016
-            C2.395,6.623,2.2,8.001,2.2,8.001S2,9.62,2,11.238v1.517c0,1.618,0.2,3.237,0.2,3.237s0.195,1.378,0.795,1.985
-            c0.761,0.797,1.76,0.771,2.205,0.855c1.6,0.153,6.8,0.201,6.8,0.201s4.203-0.006,7.001-0.209
-            c0.391-0.047,1.243-0.051,2.004-0.847c0.6-0.607,0.795-1.985,0.795-1.985s0.2-1.618,0.2-3.237v-1.517
-            C22,9.62,21.8,8.001,21.8,8.001z M9.935,14.594l-0.001-5.62l5.404,2.82L9.935,14.594z"></path>
-          </svg>
-        </a>
-        <a href="https://twitter.com" class="hover:text-gray-300" aria-label="Twitter">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M13.982 10.622L20.54 3h-1.554l-5.693 6.618L8.745 3H3.5l6.876 10.007L3.5 21h1.554l6.012-6.989L15.868 21h5.245l-7.131-10.378z"></path>
-          </svg>
+        <p class="text-gray-600 mb-4">
+          {{ post.content|striptags|truncatechars:120 }}
+        </p>
+        <a href="{{ post.get_absolute_url }}" class="text-green-700 hover:text-green-900 font-medium">
+          Citește articolul →
         </a>
       </div>
+      {% empty %}
+      <div class="col-span-full text-center py-12">
+        <p class="text-gray-600">Momentan nu există articole publicate.</p>
+      </div>
+      {% endfor %}
     </div>
   </div>
-
-  <!-- Navigation -->
-  <nav class="bg-white shadow">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="/" class="flex items-center">
-        <img src="https://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/logo.png" alt="Yuna Logo" class="w-20" />
-      </a>
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="/" class="hover:text-primary">Home</a></li>
-        <li><a href="/about" class="hover:text-primary">About</a></li>
-        <li><a href="/causes" class="hover:text-primary">Causes</a></li>
-        <li><a href="/blog" class="hover:text-primary">Blog</a></li>
-        <li><a href="/contact" class="hover:text-primary">Contact</a></li>
-      </ul>
-      <div>
-        <a href="/donate" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Donate</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="bg-secondary py-20">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-6xl font-light mb-4">
-        Be the <strong>Change</strong>
-      </h1>
-      <p class="mb-8 text-lg">
-        You can make a difference in your community and help those in need. If you are dedicated to your cause, you can make a difference in the world.
-      </p>
-      <a href="/causes" class="bg-primary text-white py-3 px-6 rounded hover:bg-primary-dark">
-        Our Causes
-      </a>
-      <div class="mt-10 flex justify-center space-x-4">
-        <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/23-edited-1024x1024.jpg" alt="" class="w-1/3 rounded-full" />
-        <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/26-edited-1024x1024.jpg" alt="" class="w-1/3 rounded-lg" />
-        <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/4-edited-1024x1024.jpg" alt="" class="w-1/3 rounded-full" />
-      </div>
-    </div>
-  </section>
-
-  <!-- What We Do Section -->
-  <section class="py-20 bg-gradient-to-r from-secondary to-primary text-white">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 space-y-4">
-        <p class="uppercase text-sm tracking-widest">– yunas mission –</p>
-        <h2 class="text-3xl font-light">
-          Bringing <strong>smiles</strong> to those in need
-        </h2>
-        <p>
-          There are many ways you can help support our work. You can make a financial contribution, volunteer your time, or donate goods or services. Every little bit helps and we are grateful for your support!
-        </p>
-        <div>
-          <a href="/causes" class="bg-white text-primary py-2 px-4 rounded hover:bg-gray-200">Our Causes</a>
-        </div>
-      </div>
-      <div class="md:w-1/2 mt-10 md:mt-0 flex space-x-4">
-        <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/23-edited-1024x1024.jpg" alt="" class="rounded-full" />
-        <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/26-edited-1024x1024.jpg" alt="" class="rounded-lg" />
-        <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/4-edited-1024x1024.jpg" alt="" class="rounded-full" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Services / Detailed What We Do -->
-  <section class="py-20">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between">
-        <div class="md:w-1/2 space-y-6">
-          <div class="flex items-center space-x-4">
-            <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/donation-icon.png" alt="Food Icon" class="w-12" />
-            <div>
-              <h3 class="text-xl font-semibold">Food</h3>
-              <p class="text-sm">
-                Our mission is to provide nutritious food to those in need, and to do so with compassion.
-              </p>
-            </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/events-icon.png" alt="Events Icon" class="w-12" />
-            <div>
-              <h3 class="text-xl font-semibold">Events</h3>
-              <p class="text-sm">
-                We are looking for someone to help with our events for our non-profit organization.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="md:w-1/2 mt-10 md:mt-0">
-          <div class="bg-white shadow rounded-lg p-8">
-            <div class="flex items-center justify-center bg-primary rounded-full w-16 h-16 mb-4">
-              <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/causes-icon.png" alt="Causes Icon" class="w-8" />
-            </div>
-            <h3 class="text-2xl font-semibold text-center mb-2">Causes</h3>
-            <p class="text-center text-sm mb-4">
-              To promote the welfare of children and families, provide assistance to the elderly and disabled, relieve poverty and suffering &amp; protect the environment.
-            </p>
-            <div class="text-center">
-              <a href="/causes" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Our Causes</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Donation / Campaigns Section -->
-  <section class="py-20 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl text-center font-light mb-8">
-        Bringing <strong>smiles</strong> to those in need.
-      </h2>
-      <p class="text-center mb-12">
-        Every little bit helps and we are grateful for your support!
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Donation Card 1 -->
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/4-edited-1024x1024.jpg" alt="Wildlife" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="bg-primary text-white inline-block rounded-full px-3 py-1 text-sm mb-2">1.</div>
-            <h3 class="text-xl font-semibold mb-2">Wildlife</h3>
-            <p class="text-sm mb-4">
-              Wildlife and their habitats are threatened by a variety of human activities and natural processes. Habitat destruction, climate change, pollution, overhunting, and overfishing are all threats to wildlife.
-            </p>
-            <a href="/donate" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Donate Now</a>
-          </div>
-        </div>
-        <!-- Donation Card 2 -->
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/23-edited-1024x1024.jpg" alt="Reforestation" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="bg-primary text-white inline-block rounded-full px-3 py-1 text-sm mb-2">2.</div>
-            <h3 class="text-xl font-semibold mb-2">Reforestation</h3>
-            <p class="text-sm mb-4">
-              Reforestation is a critical part of restoring ecosystems to health and productivity. It is also an important part of sustainable forestry, as it helps to ensure that forests are healthy and productive for generations to come.
-            </p>
-            <a href="/donate" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Donate Now</a>
-          </div>
-        </div>
-        <!-- Donation Card 3 -->
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <img src="http://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/18-edited-1024x1024.jpg" alt="Habitat Protection" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <div class="bg-primary text-white inline-block rounded-full px-3 py-1 text-sm mb-2">3.</div>
-            <h3 class="text-xl font-semibold mb-2">Habitat Protection</h3>
-            <p class="text-sm mb-4">
-              Habitat protection is an important part of biodiversity conservation, as it ensures that species are able to survive and thrive in their natural habitats. As habitats are destroyed, species are also at risk of becoming extinct.
-            </p>
-            <a href="/donate" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Donate Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Events Section -->
-  <section class="py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl text-center font-light mb-8">Yuna Charity Events</h2>
-      <p class="text-center mb-12">
-        Every little bit helps and we are grateful for your support!
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Event Card 1 -->
-        <div class="bg-white rounded-lg shadow p-6">
-          <div class="bg-secondary text-white rounded px-3 py-1 inline-block mb-2">12.02.2023</div>
-          <h3 class="text-xl font-semibold mb-2">Children's Day</h3>
-          <p class="text-sm mb-4">
-            A children's event for a non-profit organization can include many different activities. Some possible activities are arts and crafts, face painting, games, and performances.
-          </p>
-          <a href="/tickets" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Get the Ticket</a>
-        </div>
-        <!-- Event Card 2 -->
-        <div class="bg-white rounded-lg shadow p-6">
-          <div class="bg-secondary text-white rounded px-3 py-1 inline-block mb-2">18.06.2023</div>
-          <h3 class="text-xl font-semibold mb-2">Animals Day</h3>
-          <p class="text-sm mb-4">
-            A children's event for a non-profit organization can include many different activities. Some possible activities are arts and crafts, face painting, games, and performances.
-          </p>
-          <a href="/tickets" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Get the Ticket</a>
-        </div>
-        <!-- Event Card 3 -->
-        <div class="bg-white rounded-lg shadow p-6">
-          <div class="bg-secondary text-white rounded px-3 py-1 inline-block mb-2">22.04.2023</div>
-          <h3 class="text-xl font-semibold mb-2">Earth Day</h3>
-          <p class="text-sm mb-4">
-            On April 22, we will be having an event to celebrate Earth Day! This event will be open to the public and will be a great opportunity for our organization to raise awareness about our cause.
-          </p>
-          <a href="/tickets" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Get the Ticket</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Posts Section -->
-  <section class="py-20 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl text-center font-light mb-8">Latest Posts</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Post 1 -->
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <a href="/blog/be-the-change">
-            <img src="https://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/20.jpg" alt="Be the Change" class="w-full h-48 object-cover" />
-          </a>
-          <div class="p-6">
-            <p class="text-xs text-gray-500">Nov 22, 2022</p>
-            <h3 class="text-xl font-semibold mt-2">
-              <a href="/blog/be-the-change" class="hover:text-primary">Be the Change</a>
-            </h3>
-          </div>
-        </div>
-        <!-- Post 2 -->
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <a href="/blog/education-for-children">
-            <img src="https://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/14-scaled.jpg" alt="Education for Children" class="w-full h-48 object-cover" />
-          </a>
-          <div class="p-6">
-            <p class="text-xs text-gray-500">Nov 22, 2022</p>
-            <h3 class="text-xl font-semibold mt-2">
-              <a href="/blog/education-for-children" class="hover:text-primary">Education for Children</a>
-            </h3>
-          </div>
-        </div>
-        <!-- Post 3 -->
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <a href="/blog/make-a-change">
-            <img src="https://demo.anarieldesign.com/yuna-nature/wp-content/uploads/sites/38/2022/12/13.jpg" alt="Make a Change" class="w-full h-48 object-cover" />
-          </a>
-          <div class="p-6">
-            <p class="text-xs text-gray-500">Nov 22, 2022</p>
-            <h3 class="text-xl font-semibold mt-2">
-              <a href="/blog/make-a-change" class="hover:text-primary">Make a Change</a>
-            </h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap justify-between">
-        <div class="w-full md:w-1/4 mb-6">
-          <h4 class="font-semibold mb-4">About Us</h4>
-          <ul>
-            <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
-            <li><a href="/about" class="text-gray-400 hover:text-white">About Us</a></li>
-            <li><a href="/causes" class="text-gray-400 hover:text-white">Our Causes</a></li>
-            <li><a href="/contact" class="text-gray-400 hover:text-white">Contact</a></li>
-          </ul>
-        </div>
-        <div class="w-full md:w-1/4 mb-6">
-          <h4 class="font-semibold mb-4">Other Pages</h4>
-          <ul>
-            <li><a href="/privacy" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-            <li><a href="/terms" class="text-gray-400 hover:text-white">Terms of Use</a></li>
-            <li><a href="/disclaimer" class="text-gray-400 hover:text-white">Disclaimer</a></li>
-            <li><a href="/faq" class="text-gray-400 hover:text-white">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="w-full md:w-1/4 mb-6">
-          <h4 class="font-semibold mb-4">Contact Info</h4>
-          <ul>
-            <li class="flex items-center">
-              <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/location-icon-white.png" alt="Location Icon" class="w-4 mr-2" />
-              <span>Yuna Street, 12 London</span>
-            </li>
-            <li class="flex items-center mt-2">
-              <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/phone-icon-white.png" alt="Phone Icon" class="w-4 mr-2" />
-              <span>+097 28784 79</span>
-            </li>
-            <li class="flex items-center mt-2">
-              <img src="https://demo.anarieldesign.com/yuna-children/wp-content/themes/yuna/assets/images/email-icon-white.png" alt="Email Icon" class="w-4 mr-2" />
-              <span>yuna@domain.com</span>
-            </li>
-          </ul>
-        </div>
-        <div class="w-full md:w-1/4 mb-6">
-          <h4 class="font-semibold mb-4">We need your help</h4>
-          <p class="text-gray-400 text-sm mb-4">
-            By volunteering your time and efforts, you can make a difference in your community.
-          </p>
-          <a href="/volunteer" class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark">Volunteer Now</a>
-        </div>
-      </div>
-      <hr class="border-gray-700 my-6" />
-      <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-        <div class="flex items-center space-x-2">
-          <a href="/" class="hover:text-white">Yuna Theme</a>
-          <span>by</span>
-          <a href="https://anarieldesign.com/" class="hover:text-white">Anariel Design</a>
-        </div>
-        <p>© 2022 Your Company LLC</p>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+</section>
+{% endblock %}

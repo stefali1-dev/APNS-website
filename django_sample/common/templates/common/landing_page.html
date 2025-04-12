@@ -7,6 +7,16 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
 {% block content %}
 {% load static %}
 
+<style>
+  .button-hover {
+    transition: all 0.3s ease-in-out;
+  }
+  .button-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
 <section class="bg-primary">
   <div class="flex bg-gray-50 w-full flex-col md:flex-row">
     <!-- Left (White) Section, now vertically centered -->
@@ -19,13 +29,36 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
           APNS promovează alimentația corectă prin programe educaționale în școli și online,
           resurse practice și combaterea bolilor legate de nutriție. Alătură-te comunității noastre!
         </p>
-        <div>
+        <div>      
           <a
-            href="#"
-            class="font-bold text-xl inline-block text-white bg-green-600 px-8 py-4 hover:scale-105 duration-300 relative overflow-hidden hover:shadow-lg"
-          >
-            Redirecționează 3.5% impozit
-          </a>
+          href="#"
+          class="font-bold text-xl inline-block text-white px-8 py-4 hover:scale-105 duration-300 relative overflow-hidden hover:shadow-lg transition-all animate-gradient-pulse"
+          style="
+            background: linear-gradient(270deg, #22c55e, #10b981, #15803d, #10b981, #22c55e);
+            background-size: 400% 400%;
+          "
+        >
+          Redirecționează 3.5% impozit
+        </a>
+        
+        <style>
+          @keyframes gradient-pulse {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        
+          .animate-gradient-pulse {
+            animation: gradient-pulse 6s ease infinite;
+          }
+        </style>
+        
         </div>
       </div>
     </div>
@@ -33,13 +66,13 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
     <!-- Right (Green) Section -->
     <div class="hidden md:flex flex-1 md:w-1/2 bg-green-700 p-10  items-center justify-start relative overflow-visible">
       <div class="relative z-10 -ml-12 md:-ml-36">
-        <div class="border-y-[20px] border-r-[20px] border-gray-100 py-12 pr-12">
-          <div class="relative">
+        <div class="border-y-[20px] border-r-[20px] border-gray-50 py-12 pr-12">
+          <div class="relative ">
             <!-- Make the image bigger by changing these classes as needed -->
             <img
               src="static/common/images/apns.png"
               alt="Four senior men and women out for a hike"
-              class="w-[1000px] h-auto object-cover"
+              class="w-[700px] h-auto object-cover"
               loading="eager"
             />
           </div>
@@ -59,7 +92,7 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
       class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
     >
       <svg
-        class="w-8 h-8 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
+        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.8"
@@ -230,7 +263,7 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
       <!-- First Content Block -->
       <div class="items-center gap-8 xl:gap-16 md:grid md:grid-cols-2">
         <img
-          class="w-full rounded-lg shadow-lg hidden sm:block"
+          class="w-full rounded-lg shadow-lg hidden sm:block transition-transform duration-300 hover:scale-105"
           src="static/common/images/image1.png"
           alt="Workshop nutrițional"
           width={600}
@@ -305,7 +338,7 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
           </div>
         </div>
         <img
-          class="w-full rounded-lg shadow-lg hidden sm:block"
+          class="w-full rounded-lg shadow-lg hidden sm:block transition-transform duration-300 hover:scale-105"
           src="static/common/images/donate.png"
           alt="Comunitate APNS"
           width={600}
@@ -416,11 +449,11 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-lg shadow p-6">
+      <div class="bg-white rounded-lg shadow-lg drop-shadow-lg p-6">
         <img
           src="static/common/images/recipe.png"
           alt="Rețete sănătoase"
-          class="rounded-lg mb-4 w-full h-48 object-cover"
+          class="rounded-lg mb-4 w-full h-48 object-cover transition-transform "
           width={400}
           height={200}
         />
@@ -430,11 +463,11 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
         <a href="#" class="text-green-700 hover:text-green-900 font-medium">Descarcă acum →</a>
       </div>
 
-      <div class="bg-white rounded-lg shadow p-6">
+      <div class="bg-white rounded-lg shadow-lg drop-shadow-lg p-6">
         <img
           src="static/common/images/campanie.png"
           alt="Campanie școli"
-          class="rounded-lg mb-4 w-full h-48 object-cover"
+          class="rounded-lg mb-4 w-full h-48 object-cover transition-transform "
           width={400}
           height={200}
         />
@@ -444,11 +477,11 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
         <a href="#" class="text-green-700 hover:text-green-900 font-medium">Înscrie-te →</a>
       </div>
 
-      <div class="bg-white rounded-lg shadow p-6">
+      <div class="bg-white rounded-lg shadow-lg drop-shadow-lg p-6">
         <img
           src="https:/static/common/images.unsplash.com/photo-1600891964599-f61ba0e24092"
           alt="Cumpărături sănătoase"
-          class="rounded-lg mb-4 w-full h-48 object-cover"
+          class="rounded-lg mb-4 w-full h-48 object-cover transition-transform "
           width={400}
           height={200}
         />
@@ -554,7 +587,7 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
         <img
           src="static/common/images/donate2.png"
           alt="Copii în clasă"
-          class="w-full rounded-lg shadow"
+          class="w-full rounded-lg shadow transition-transform duration-300 hover:scale-105"
           width={600}
           height={400}
         />

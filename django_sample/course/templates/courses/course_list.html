@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Courses</h1>
+<div class="row">
+  {% for course in courses %}
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="{{ course.thumbnail.url }}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ course.title }}</h5>
+        <p class="card-text">{{ course.description|truncatewords:20 }}</p>
+        <p class="text-success">${{ course.price }}</p>
+        <a href="{% url 'courses:course_detail' course.id %}" class="btn btn-primary">View Details</a>
+        <a href="{% url 'courses:add_to_cart' course.id %}" class="btn btn-success">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
