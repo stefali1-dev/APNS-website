@@ -1,0 +1,11 @@
+.article-tip {
+    @apply bg-green-50 p-6 rounded-lg border-l-4 border-green-700;
+}
+
+.article-image {
+    @apply w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105;
+}
+
+.nutrient-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4 text-center;
+}

@@ -9,6 +9,8 @@
     <title>My App</title>
     {% tailwind_css %}
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'common/css/components.css' %}">
   </head>
   <!-- Add touch-friendly classes and mobile-optimized text sizing -->
   <body class="min-h-screen flex flex-col justify-start font-sans text-sm text-gray-700 bg-white w-full touch-auto">

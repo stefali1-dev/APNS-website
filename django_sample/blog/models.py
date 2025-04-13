@@ -39,10 +39,17 @@ class Post(models.Model):
     )
     image = models.ImageField(
         upload_to='posts/',
-        blank=True,
-        null=True,
+        blank=False,
+        null=False,
         help_text="Upload an image for the post"
     )
+
+    show_on_landing = models.BooleanField(
+        default=False,
+        verbose_name="Show on Landing Page",
+        help_text="Check to display this post on the main landing page"
+    )
+
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 

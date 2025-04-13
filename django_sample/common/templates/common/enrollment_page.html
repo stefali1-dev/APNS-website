@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Devino voluntar - Asociația de Nutriție{% endblock %}
+
+{% block content %}
+<div class="bg-green-50 min-h-screen">
+    <!-- Hero section îmbunătățită -->
+    <div class="relative bg-gradient-to-b from-green-700 to-green-600 text-white overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
+                        <path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" stroke-width="0.5" />
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 pt-16 pb-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="inline-block px-4 py-1 rounded-full bg-green-800 text-green-100 text-sm font-medium mb-4">Oportunitate specială</span>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Devino voluntar</h1>
+                <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Alătură-te echipei noastre și contribuie la promovarea unui stil de viață sănătos în comunitatea noastră</p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <a href="#detalii" class="bg-white text-green-700 hover:bg-green-100 font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        Află cum să te înscrii
+                    </a>
+                    <a href="#contact" class="bg-green-800 text-white hover:bg-green-900 font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        Contactează-ne acum
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Container pentru imagine cu efect de umbră și border - varianta îmbunătățită -->
+        {% comment %} <div class="relative mx-auto max-w-4xl px-4 pb-16">
+            <!-- Efect de fundal umbrit și rotit -->
+            <div class="absolute inset-0 bg-green-800 opacity-20 transform rotate-1 rounded-xl mx-8 my-4"></div>
+            
+            <!-- Container pentru imagine -->
+            <div class="relative bg-white p-2 rounded-xl shadow-2xl overflow-hidden">
+                <img
+                    class="w-full h-64 sm:h-80 md:h-96 max-h-96 object-cover object-center rounded-lg"
+                    src="{% static 'common/images/donate2.png' %}"
+                    alt="Comunitate APNS"
+                />
+                
+                <!-- Gradient overlay și text -->
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-green-900 to-transparent p-4 md:p-6">
+                    <div class="flex items-center space-x-2">
+                        <span class="flex h-3 w-3 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <p class="text-white font-medium">Avem nevoie de voluntari ca tine!</p>
+                    </div>
+                </div>
+            </div>
+        </div> {% endcomment %}
+        
+        <!-- Statistici -->
+        <div class="bg-green-800 py-6">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-4">
+                        <p class="text-3xl font-bold text-white">50+</p>
+                        <p class="text-green-200">Voluntari activi</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-3xl font-bold text-white">1000+</p>
+                        <p class="text-green-200">Persoane ajutate</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-3xl font-bold text-white">25+</p>
+                        <p class="text-green-200">Proiecte anuale</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-3xl font-bold text-white">5</p>
+                        <p class="text-green-200">Ani de activitate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secțiune de tranziție -->
+    <div class="bg-green-50 py-6">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="inline-flex items-center space-x-4">
+                    <span class="h-px w-12 bg-green-300"></span>
+                    <span class="text-green-700 font-medium">Fii parte din schimbare</span>
+                    <span class="h-px w-12 bg-green-300"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="detalii" class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold text-green-700 mb-6">Cum te poți înscrie în asociația noastră</h2>
+            
+            <div class="mb-8">
+                <p class="text-lg mb-4">Ne bucurăm că dorești să te alături echipei noastre de voluntari dedicați! Procesul de înscriere este simplu și direct:</p>
+                
+                <div class="bg-green-100 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-semibold text-green-800 mb-4">Pași pentru înscriere:</h3>
+                    <ol class="list-decimal pl-5 space-y-3">
+                        <li>Contactează-ne prin una din metodele de mai jos</li>
+                        <li>Vei primi contractul de voluntariat prin email</li>
+                        <li>Completează și semnează contractul</li>
+                        <li>Returnează contractul semnat</li>
+                        <li>Vei fi contactat pentru o scurtă sesiune de orientare</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div id="contact" class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200 hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-green-800 mb-4">Contactează-ne telefonic</h3>
+                    <p class="mb-3">Ne poți suna pentru a discuta despre posibilitățile de voluntariat:</p>
+                    <p class="text-xl font-bold text-green-700">{% if contact_phone %}{{ contact_phone }}{% else %}0740 123 456{% endif %}</p>
+                    <p class="text-sm text-green-600 mt-2">Program: Luni-Vineri, 9:00-17:00</p>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200 hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-green-800 mb-4">Contactează-ne prin email</h3>
+                    <p class="mb-3">Trimite-ne un email cu datele tale de contact și interesul pentru voluntariat:</p>
+                    <p class="text-xl font-bold text-green-700">{% if contact_email %}{{ contact_email }}{% else %}voluntari@asociatianutrition.ro{% endif %}</p>
+                    <p class="text-sm text-green-600 mt-2">Răspundem în maxim 48 de ore</p>
+                </div>
+            </div>
+            
+            <div class="bg-green-100 p-6 rounded-lg mb-8">
+                <h3 class="text-xl font-semibold text-green-800 mb-4">Contractul de voluntariat</h3>
+                <p class="mb-3">După ce ne contactezi, vei primi contractul de voluntariat care include:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Drepturile și obligațiile părților</li>
+                    <li>Perioada de voluntariat</li>
+                    <li>Activitățile în care te poți implica</li>
+                    <li>Beneficiile voluntariatului</li>
+                </ul>
+                <p class="mt-3">Contractul semnat poate fi returnat prin email (scanat) sau fizic la sediul asociației.</p>
+            </div>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-green-800 mb-4">De ce să devii voluntar?</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-start">
+                        <div class="bg-green-200 p-2 rounded-full mr-3 mt-1">
+                            <svg class="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p>Contribui la o cauză importantă pentru sănătatea comunității</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-green-200 p-2 rounded-full mr-3 mt-1">
+                            <svg class="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p>Înveți de la specialiști în domeniul nutriției</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-green-200 p-2 rounded-full mr-3 mt-1">
+                            <svg class="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p>Dezvolți abilități de comunicare și organizare</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-green-200 p-2 rounded-full mr-3 mt-1">
+                            <svg class="w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p>Primești certificat de voluntariat pentru activitatea prestată</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-green-600 to-green-700 text-white p-6 rounded-lg mb-6 text-center">
+                <h3 class="text-xl font-bold mb-3">Pregătit să faci o diferență?</h3>
+                <p class="mb-4">Alătură-te echipei noastre de voluntari și contribuie la educația nutrițională în comunitate!</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact" class="bg-white text-green-700 font-semibold py-2 px-6 rounded-lg hover:bg-green-100 transition duration-300">Contactează-ne</a>
+                    <a href="#" class="bg-green-800 text-white font-semibold py-2 px-6 rounded-lg hover:bg-green-900 transition duration-300">Află mai multe</a>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <h3 class="text-xl font-semibold text-green-800 mb-4">Întrebări frecvente</h3>
+                <div class="space-y-4">
+                    <div class="border-b border-green-200 pb-4">
+                        <h4 class="font-medium text-green-700 mb-2">Ce pregătire trebuie să am pentru a deveni voluntar?</h4>
+                        <p>Nu este necesară o pregătire specifică. Căutăm persoane entuziasmaste, care doresc să învețe și să contribuie la promovarea unui stil de viață sănătos.</p>
+                    </div>
+                    <div class="border-b border-green-200 pb-4">
+                        <h4 class="font-medium text-green-700 mb-2">Câte ore pe săptămână trebuie să dedic voluntariatului?</h4>
+                        <p>Programul este flexibil și depinde de disponibilitatea ta. Poți aloca minim 2-4 ore pe săptămână, în funcție de proiectele în care dorești să te implici.</p>
+                    </div>
+                    <div class="border-b border-green-200 pb-4">
+                        <h4 class="font-medium text-green-700 mb-2">Ce activități voi desfășura ca voluntar?</h4>
+                        <p>Activitățile includ organizarea de evenimente educaționale, asistență la workshopuri de nutriție, crearea de materiale informative și participarea la campanii de conștientizare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
