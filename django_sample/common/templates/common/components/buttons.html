@@ -1,0 +1,17 @@
+{% load static %}
+
+{% comment %}
+  Usage: {% include 'common/components/buttons.html' with style="primary" href="#" text="Button" %}
+{% endcomment %}
+
+{% if style == "primary" %}
+<a href="{{ href }}" 
+   class="bg-white text-green-600 font-medium px-6 py-3 rounded shadow-md hover:text-green-700 transition-colors duration-300">
+  {{ text }}
+</a>
+{% elif style == "secondary" %}
+<a href="{{ href }}" 
+   class="bg-green-800 hover:bg-white border-white text-white font-medium px-6 py-3 rounded hover:text-green-600 transition-colors duration-300">
+  {{ text }}
+</a>
+{% endif %}

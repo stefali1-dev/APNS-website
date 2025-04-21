@@ -1,0 +1,95 @@
+{% load static %}
+
+<div x-data="newsletterModal()" 
+     x-cloak
+     class="relative">
+  <!-- Modal Content (same as before but with variables) -->
+  <div x-show="showModal"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 scale-95"
+       x-transition:enter-end="opacity-100 scale-100"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100 scale-100"
+       x-transition:leave-end="opacity-0 scale-95"
+       class="fixed inset-0 flex items-center justify-center z-50 p-4"
+       @click.away="closeModal">
+      
+      <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden relative">
+          <button @click="closeModal" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-50 transition-colors">
+              <!-- Close icon -->
+          </button>
+
+          <div class="p-8">
+              <div class="mb-6 text-center">
+                  <div class="mx-auto bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  </div>
+                  
+                  <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ title }}</h2>
+                  <p class="text-gray-600">{{ body }}</p>
+              </div>
+
+              <form @submit.prevent="submitForm" 
+                    x-data="{ email: '' }"
+                    class="space-y-4">
+                  {% csrf_token %}
+                  <input type="email" 
+                       x-model="email"
+                       placeholder="{{ placeholder }}"
+                       class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all"
+                       required>
+
+                  <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+                      {{ submit_text }}
+                  </button>
+              </form>
+
+              <p class="mt-4 text-center text-sm text-gray-500">
+                  {{ footer_text }}
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+function newsletterModal() {
+    return {
+        showModal: false,
+        init() {
+            const hasSubscribed = document.cookie.includes('email_subscribed');
+            const modalClosed = document.cookie.includes('modal_closed');
+            const visitCount = parseInt(localStorage.getItem('visit_count')) || 0;
+            
+            localStorage.setItem('visit_count', visitCount + 1);
+            
+            if (!hasSubscribed && visitCount >= 1 && !modalClosed) {
+                setTimeout(() => this.showModal = true, 1000);
+            }
+        },
+        closeModal() {
+            this.showModal = false;
+            const now = new Date();
+            const expiry = new Date(now.getTime() + 60 * 60 * 1000);
+            document.cookie = `modal_closed=true; expires=${expiry.toUTCString()}; path=/`;
+        },
+        submitForm() {
+            fetch('{% url "subscribe" %}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `email=${encodeURIComponent(this.email)}`
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.cookie = 'email_subscribed=true; max-age=2592000; path=/';
+                    this.closeModal();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+}
+</script>

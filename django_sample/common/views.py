@@ -18,7 +18,7 @@ def subscribe(request):
     try:
         EmailSubscription.objects.create(email=email)
         response = JsonResponse({'status': 'success'})
-        # Set cookie for 30 days
+        # Setăm cookie pentru 30 de days DACA s-a abonat
         response.set_cookie('email_subscribed', 'true', max_age=30*24*60*60)
         return response
     except Exception as e:

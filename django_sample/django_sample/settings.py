@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,7 +46,9 @@ INSTALLED_APPS = [
     'blog',
     'course',
     'django.contrib.humanize',
-    'users'
+    'users',
+    'ebook',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
@@ -151,3 +155,50 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / 'common/static',
 ]
+
+# TinyMCE Configuration
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "500px",
+    "width": "100%",
+    "valid_elements": "@[id|class|style|title],a[href|target=_blank],strong/b,em/i,br,ul,ol,li,p,img[src|alt]",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount emoticons",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | emoticons | pagebreak | charmap | "
+    "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "images_upload_url": "/upload_image/",  # Optional: if you want image uploads
+}
+
+# settings.py
+BLEACH_ALLOWED_TAGS = ['p', 'b', 'i', 'u', 'em', 'strong', 'a', 'ul', 'ol', 'li', 'br', 'img']
+BLEACH_ALLOWED_ATTRIBUTES = ['href', 'title', 'style', 'src', 'alt']
+BLEACH_ALLOWED_STYLES = ['font-family', 'font-weight', 'text-decoration', 'font-variant']
+
+# Instanțiem managerul de mediu
+env = environ.Env(
+    # valori default, dacă vrei
+    DEBUG=(bool, False),
+)
+
+# Citește automat fișierul .env
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+# Folosește backend‑ul SMTP standard
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Setările SMTP Gmail
+EMAIL_HOST       = 'smtp.gmail.com'
+EMAIL_PORT       = 587
+EMAIL_USE_TLS    = True     # STARTTLS pe portul 587
+# EMAIL_USE_SSL = False     # nu îl folosi împreună cu TLS
+
+# Încarcă din .env
+EMAIL_HOST_USER     = env('GMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('GMAIL_APP_PASSWORD')
+
+# Adresa care apare în câmpul "From:"
+DEFAULT_FROM_EMAIL  = EMAIL_HOST_USER

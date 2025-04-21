@@ -184,3 +184,5 @@ theme/static_src/dist/
 # Optionally ignore log files from npm or yarn
 npm-debug.log*
 yarn-debug.log*
+
+.env

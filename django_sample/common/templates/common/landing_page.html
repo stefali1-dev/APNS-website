@@ -17,11 +17,22 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
   }
 </style>
 
-<div x-data="{ showModal: false }" x-init="() => {
-  if (!document.cookie.includes('email_subscribed')) {
-      setTimeout(() => showModal = true, 1000);
-  }
-}" class="relative">
+<div x-data="{ showModal: false }" 
+     x-init="() => {
+        const hasSubscribed = document.cookie.includes('email_subscribed');
+        const modalClosed = document.cookie.includes('modal_closed');
+        const visitCount = parseInt(localStorage.getItem('visit_count')) || 0;
+        
+        // Incrementăm numărul de vizite
+        localStorage.setItem('visit_count', visitCount + 1);
+        
+        // Afișăm modalul doar la a 2a vizită și dacă nu a închis recent
+        if (!hasSubscribed && visitCount >= 1 && !modalClosed) {
+            setTimeout(() => showModal = true, 1000);
+        }
+     }" 
+     class="relative">
+     
   <!-- Modal Backdrop -->
   <div x-show="showModal" 
        x-transition:enter="transition ease-out duration-300"
@@ -31,7 +42,7 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
        x-transition:leave-start="opacity-100"
        x-transition:leave-end="opacity-0"
        class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
-       @click="showModal = false">
+       @click="showModal = false; setModalClosedCookie()"> <!-- Adăugăm gestionarea închiderii -->
   </div>
 
   <!-- Modal Content -->
@@ -43,77 +54,86 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
        x-transition:leave-start="opacity-100 scale-100"
        x-transition:leave-end="opacity-0 scale-95"
        class="fixed inset-0 flex items-center justify-center z-50 p-4"
-       @click.away="showModal = false">
+       @click.away="showModal = false; setModalClosedCookie()"> <!-- Adăugăm aici -->
       
       <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden relative">
           <!-- Close Button -->
-          <button @click="showModal = false" 
+          <button @click="showModal = false; setModalClosedCookie()"
                   class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-50 transition-colors">
               <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
           </button>
 
+          
           <!-- Content -->
           <div class="p-8">
-              <!-- Decorative Header -->
-              <div class="mb-6 text-center">
-                  <div class="mx-auto bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                      <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                      </svg>
-                  </div>
-                  
-                  <h2 class="text-3xl font-bold text-gray-800 mb-2">Grow Healthy Together!</h2>
-                  <p class="text-gray-600">Get nutrition tips, recipes, and updates straight to your inbox</p>
-              </div>
+            <!-- Decorative Header -->
+            <div class="mb-6 text-center">
+                <div class="mx-auto bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Creștem sănătoși împreună!</h2>
+                <p class="text-gray-600">Primiți sfaturi nutriționale, rețete și actualizări direct în inbox</p>
+            </div>
 
-              <form @submit.prevent="
-                  fetch('/subscribe/', {
-                      method: 'POST',
-                      headers: {
-                          'X-CSRFToken': '{{ csrf_token }}',
-                          'Content-Type': 'application/x-www-form-urlencoded',
-                      },
-                      body: `email=${encodeURIComponent(email)}&consent=true`
-                  })
-                  .then(response => {
-                      if (response.ok) {
-                          document.cookie = 'email_subscribed=true; max-age=2592000';
-                          showModal = false;
-                          // Optional: Show success message
-                      }
-                  })
-                  .catch(error => console.error('Error:', error))"
-                  x-data="{ email: '' }"
-                  class="space-y-4">
-                  
-                  <div class="relative">
-                      <input 
-                          type="email" 
-                          x-model="email"
-                          placeholder="Your best email address" 
-                          class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all"
-                          required
-                      >
-                  </div>
+            <form @submit.prevent="
+                fetch('/subscribe/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `email=${encodeURIComponent(email)}&consent=true`
+                })
+                .then(response => {
+                    if (response.ok) {
+                        document.cookie = 'email_subscribed=true; max-age=2592000';
+                        showModal = false;
+                        // Optional: Show success message
+                    }
+                })
+                .catch(error => console.error('Error:', error))"
+                x-data="{ email: '' }"
+                class="space-y-4">
+                
+                <div class="relative">
+                    <input 
+                        type="email" 
+                        x-model="email"
+                        placeholder="Adresa de e-mail" 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all"
+                        required
+                    >
+                </div>
 
-                  <button 
-                      type="submit" 
-                      class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-[1.02] active:scale-95"
-                  >
-                      Subscribe Now
-                  </button>
-              </form>
+                <button 
+                    type="submit" 
+                    class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-[1.02] active:scale-95"
+                >
+                Abonați-vă acum!
+                </button>
+            </form>
 
-              <p class="mt-4 text-center text-sm text-gray-500">
-                  We respect your privacy. Unsubscribe anytime.
-              </p>
-          </div>
+            <p class="mt-4 text-center text-sm text-gray-500">
+              Vă respectăm confidențialitatea. Dezabonați-vă oricând.
+            </p>
+        </div>
+
       </div>
   </div>
 </div>
 
+<script>
+function setModalClosedCookie() {
+    const now = new Date();
+    const expiry = new Date(now.getTime() + 60 * 60 * 1000); // 1 oră
+    document.cookie = `modal_closed=true; expires=${expiry.toUTCString()}; path=/`;
+}
+</script>
 <section class="bg-primary">
   <div class="flex bg-gray-50 w-full flex-col md:flex-row">
     <!-- Left (White) Section, now vertically centered -->
@@ -376,28 +396,28 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
           </p>
           <div class="flex items-center gap-4">
             <a
-              href="enrollment"
-              class="inline-flex items-center text-white bg-green-700 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            href="/enrollment" 
+              class="inline-flex bg-green-700 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 transition-colors duration-300"
             >
-              Implică-te
-              <svg
-                class="w-4 h-4 ml-2 -mr-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            Implică-te
+            <svg
+              class="w-4 h-4 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
             </a>
             <a
-              href="#"
-              class="text-gray-900 border border-gray-200 hover:bg-gray-100 hover:text-green-700 focus:ring-gray-100 justify-center inline-flex items-center focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              href="/contact"
+              class="inline-block border-2 border-green-600 text-green-600 font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 hover:text-white transition-colors duration-300"
             >
-              Despre noi
+            Despre noi
             </a>
           </div>
         </div>
@@ -415,22 +435,22 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
           </p>
           <div class="flex items-center gap-4">
             <a
-              href="#"
-              class="inline-flex items-center text-white bg-green-700 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            href="/projects" 
+              class="inline-flex bg-green-700 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 transition-colors duration-300"
             >
-              Vezi toate activitățile
-              <svg
-                class="w-4 h-4 ml-2 -mr-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            Vezi toate activitățile
+            <svg
+              class="w-4 h-4 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
             </a>
           </div>
         </div>

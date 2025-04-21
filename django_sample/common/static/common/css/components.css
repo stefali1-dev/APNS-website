@@ -70,3 +70,7 @@
 .transform:hover\:scale-\[1\.02\] {
     transition: transform 0.2s ease;
 }
+
+[x-cloak] { 
+  display: none !important; 
+}
