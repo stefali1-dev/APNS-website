@@ -27,7 +27,7 @@ SECRET_KEY = "#yuvb+-@i03l^eyopj@1iw6_x_mhu((bby9gt1r=(9w_9le*ow"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139-162-128-229.ip.linodeusercontent.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['139-162-128-229.ip.linodeusercontent.com', 'localhost', '127.0.0.1', 'appns.ro']
 
 
 # Application definition
@@ -157,23 +157,39 @@ STATICFILES_DIRS = [
 ]
 
 # TinyMCE Configuration
+# settings.py
+
 TINYMCE_DEFAULT_CONFIG = {
     "height": "500px",
     "width": "100%",
-    "valid_elements": "@[id|class|style|title],a[href|target=_blank],strong/b,em/i,br,ul,ol,li,p,img[src|alt]",
-    "menubar": "file edit view insert format tools table help",
-    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
-    "fullscreen insertdatetime media table paste code help wordcount emoticons",
-    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
-    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
-    "backcolor casechange permanentpen formatpainter removeformat | emoticons | pagebreak | charmap | "
-    "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
-    "a11ycheck ltr rtl | showcomments addcomment code",
+    "valid_elements": (
+        "@[id|class|style|title],"
+        "a[href|target=_blank],"
+        "strong/b,em/i,br,ul,ol,li,p,img[src|alt]"
+    ),
+    "menubar": "file edit insert view format tools table help",
+
+    # only core plugins (the ones you get in the default tinymce package)
+    "plugins": (
+        "advlist autolink lists link image charmap "
+        "preview visualblocks code fullscreen "
+        "insertdatetime media table paste help emoticons"
+    ),
+
+    # toolbar buttons matching only those plugins
+    "toolbar": (
+        "undo redo | bold italic underline strikethrough | "
+        "alignleft aligncenter alignright alignjustify | "
+        "bullist numlist | outdent indent | "
+        "link image media | table | charmap emoticons | "
+        "preview code fullscreen | help"
+    ),
+
     "custom_undo_redo_levels": 10,
-    "images_upload_url": "/upload_image/",  # Optional: if you want image uploads
+    "images_upload_url": "/upload_image/",
 }
 
-# settings.py
+
 BLEACH_ALLOWED_TAGS = ['p', 'b', 'i', 'u', 'em', 'strong', 'a', 'ul', 'ol', 'li', 'br', 'img']
 BLEACH_ALLOWED_ATTRIBUTES = ['href', 'title', 'style', 'src', 'alt']
 BLEACH_ALLOWED_STYLES = ['font-family', 'font-weight', 'text-decoration', 'font-variant']

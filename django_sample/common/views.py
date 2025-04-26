@@ -4,7 +4,8 @@ from blog.models import Post
 
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
-from users.models import EmailSubscription
+from common.models import Volunteer
+from users.models import EmailSubscription, Profile
 
 # Create your views here.
 # views.py
@@ -36,6 +37,13 @@ def donation_view(request):
 
 def contact_view(request):
     return render(request, 'common/contact_page.html')
+
+def volunteers_view(request):
+    queryset = Volunteer.objects.filter(is_active=True)
+    context = {
+        'volunteers': queryset
+    }
+    return render(request, 'common/volunteers_page.html', context)
 
 def article_view(request, topic):
     template_path = f'common/articles/{topic.lower()}.html'

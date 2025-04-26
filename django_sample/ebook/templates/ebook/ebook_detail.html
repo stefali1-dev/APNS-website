@@ -299,42 +299,6 @@
             {{ ebook.full_description|safe }}
           </div>
           
-          <!-- Ce vei învăța -->
-          {% comment %} <div class="mt-8">
-            <h3 class="text-lg font-semibold text-gray-800 mb-3">Ce vei învăța</h3>
-            <ul class="space-y-2">
-              <li class="flex items-start">
-                <svg class="h-5 w-5 text-green-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700">Cum să identifici și să gestionezi simptomele diabetului</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="h-5 w-5 text-green-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700">Planuri de alimentație echilibrate pentru diabetici</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="h-5 w-5 text-green-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700">Rețete sănătoase și delicioase adaptate nevoilor tale</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="h-5 w-5 text-green-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700">Exerciții și activități fizice recomandate</span>
-              </li>
-              <li class="flex items-start">
-                <svg class="h-5 w-5 text-green-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700">Strategii pentru reducerea stresului și îmbunătățirea stilului de viață</span>
-              </li>
-            </ul>
-          </div> {% endcomment %}
         </div>
         
         <!-- Despre Autori -->
@@ -348,19 +312,24 @@
                 <img src="{{ author.profile_image.url }}" alt="{{ author.user.get_full_name }}" class="w-full h-full object-cover">
               {% else %}
                 <svg class="h-full w-full text-gray-400 p-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                 </svg>
               {% endif %}
             </div>
             <div>
               <h3 class="text-lg font-medium text-gray-800 mb-1">{{ author.user.get_full_name }}</h3>
+              <p class="text-xs uppercase tracking-wider font-medium text-green-900 mb-2" style="font-variant: small-caps;">
+                {{ author.name }}
+              </p>
               <p class="text-gray-500 mb-3 text-sm">{{ author.title }}</p>
               <div class="prose prose-sm text-gray-700 max-w-none">
                 {{ author.bio|safe|default:"Informații despre autor nu sunt disponibile în acest moment." }}
               </div>
             </div>
           </div>
-          {% endfor %}
+        {% endfor %}
+        
         </div>
         
         <!-- Cuprins -->

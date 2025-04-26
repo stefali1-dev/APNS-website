@@ -186,3 +186,6 @@ npm-debug.log*
 yarn-debug.log*
 
 .env
+
+django_sample/media/
+django_sample/static/	
