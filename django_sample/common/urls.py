@@ -10,6 +10,7 @@ urlpatterns = [
     path('donation', views.donation_view, name='donation'),
     path('contact', views.contact_view, name='contact'),
     path('volunteers/', views.volunteers_view, name='volunteers'),
+    path('webinars/', views.webinars_view, name='webinars'),
     path('article/<str:topic>/', views.article_view, name='article_detail'),
 
 ]

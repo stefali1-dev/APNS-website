@@ -42,7 +42,7 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
        x-transition:leave-start="opacity-100"
        x-transition:leave-end="opacity-0"
        class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
-       @click="showModal = false; setModalClosedCookie()"> <!-- Adăugăm gestionarea închiderii -->
+       @click="showModal = false; setModalClosedCookie()">
   </div>
 
   <!-- Modal Content -->
@@ -112,7 +112,7 @@ APNS - Asociația pentru Promovarea Nutriției Sănătoase
 
                 <button 
                     type="submit" 
-                    class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-[1.02] active:scale-95"
+                    class="w-full bg-green-600 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-[1.02] active:scale-95"
                 >
                 Abonați-vă acum!
                 </button>
@@ -181,7 +181,7 @@ function setModalClosedCookie() {
     </div>
 
     <!-- Right (Green) Section -->
-    <div class="hidden md:flex flex-1 md:w-1/2 bg-green-700 p-10  items-center justify-start relative overflow-visible">
+    <div class="hidden md:flex flex-1 md:w-1/2 bg-green-600 p-10  items-center justify-start relative overflow-visible">
       <div class="relative z-10 -ml-12 md:-ml-36">
         <div class="border-y-[10px] border-r-[10px] border-gray-50 py-10 pr-10">
           <div class="relative ">
@@ -200,29 +200,41 @@ function setModalClosedCookie() {
 </section>
 
 <!-- Cards Section -->
-<main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
+<main class="max-w-screen-xl mx-auto py-10 px-4">
+  <div class="grid grid-cols-2 md:grid-cols-7 gap-3">
 
     <!-- Card 1: Diabet -->
     <a
       href="{% url 'article_detail' 'diabetes' %}" 
       class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
     >
-      <svg
-        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"
-        />
-      </svg>
-      <h3 class="text-base font-semibold text-gray-700 text-center px-2 leading-tight">
+      <div class="group inline-block cursor-pointer">
+        <svg 
+          class="w-20 h-20 mt-2 mb-6"
+          version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+          viewBox="0 0 512.003 512.003" xml:space="preserve">
+          <path 
+            class="fill-[#D8143A] transition-[fill] duration-300 ease-in-out group-hover:fill-[#14D83A]" 
+            id="SVGCleanerId_0" 
+            d="M360.773,20.807c-38.114,0-75.772,14.352-104.769,39.228c-0.002-0.002-0.003-0.003-0.005-0.003c-29.001-24.876-66.657-39.225-104.77-39.225C66.429,20.807,0,87.234,0,172.037c0,102.506,71.37,165.162,179.402,260.002c9.234,8.107,18.763,16.471,28.57,25.143c0.067,0.059,0.135,0.119,0.203,0.177l32.617,28.174c4.367,3.774,9.789,5.66,15.21,5.663c0.003,0,0.005,0,0.008,0c5.424,0,10.847-1.889,15.219-5.663l32.611-28.174c0.068-0.059,0.135-0.118,0.203-0.177c64.565-57.104,112.977-100.818,148-143.453c40.907-49.796,59.961-94.82,59.961-141.692C512,87.234,445.573,20.807,360.773,20.807z"/>
+      
+          <g>
+            <path 
+              class="fill-[#D8143A] transition-[fill] duration-300 ease-in-out group-hover:fill-[#14D83A]" 
+              id="SVGCleanerId_0_1_" 
+              d="M360.773,20.807c-38.114,0-75.772,14.352-104.769,39.228c-0.002-0.002-0.003-0.003-0.005-0.003c-29.001-24.876-66.657-39.225-104.77-39.225C66.429,20.807,0,87.234,0,172.037c0,102.506,71.37,165.162,179.402,260.002c9.234,8.107,18.763,16.471,28.57,25.143c0.067,0.059,0.135,0.119,0.203,0.177l32.617,28.174c4.367,3.774,9.789,5.66,15.21,5.663c0.003,0,0.005,0,0.008,0c5.424,0,10.847-1.889,15.219-5.663l32.611-28.174c0.068-0.059,0.135-0.118,0.203-0.177c64.565-57.104,112.977-100.818,148-143.453c40.907-49.796,59.961-94.82,59.961-141.692C512,87.234,445.573,20.807,360.773,20.807z"/>
+          </g>
+      
+          <polygon 
+            class="fill-[#830018] transition-[fill] duration-300 ease-in-out group-hover:fill-[#188300]" 
+            points="287.037,209.449 287.037,147.373 256,147.373 224.961,147.373 224.961,209.449 162.889,209.449 162.889,271.523 224.961,271.523 224.961,333.596 256,333.596 287.037,333.596 287.037,271.523 349.111,271.523 349.111,209.449"/>
+      
+          <path 
+            class="fill-[#B8002B] transition-[fill] duration-300 ease-in-out group-hover:fill-[#00B82B]" 
+            d="M179.402,432.039c9.234,8.107,18.763,16.471,28.57,25.143c0.067,0.059,0.135,0.119,0.203,0.177l32.617,28.174c4.367,3.774,9.789,5.66,15.21,5.663v-157.6h-31.039v-62.073H162.89v-62.074h62.073v-62.076h31.039v-87.34C227,35.157,189.345,20.809,151.231,20.809C66.429,20.807,0,87.234,0,172.039C0,274.543,71.37,337.199,179.402,432.039z"/>
+        </svg>
+      </div>
+      <h3 class="text-xl py-2 font-semibold text-gray-700 text-center px-2 leading-tight">
         Diabet
       </h3>
     </a>
@@ -232,142 +244,77 @@ function setModalClosedCookie() {
     href="{% url 'article_detail' 'obesity' %}" 
       class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
     >
-      <svg
-        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-        />
-      </svg>
-      <h3 class="text-base font-semibold text-gray-700 text-center px-2 leading-tight">
+      <div class="group inline-block cursor-pointer">
+        <svg 
+        class="w-20 h-20 mt-2 mb-6 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
+        version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+          viewBox="0 0 512 512" xml:space="preserve">
+          <path 
+            class="fill-[#AFAFD9] transition-[fill] duration-300 ease-in-out group-hover:fill-[#AFD9AF]" 
+            d="M256,11.251c-141.384,0-256,29.51-256,65.911v399.645c0,13.224,10.72,23.942,23.942,23.942h464.116
+            c13.224,0,23.942-10.72,23.942-23.942V77.162C512,40.761,397.385,11.251,256,11.251z"/>
+          
+          <path class="opacity-10" d="M24.344,476.807V77.162c0-35.351,108.096-64.2,243.828-65.836
+            c-4.035-0.049-8.091-0.075-12.172-0.075C114.616,11.251,0,40.76,0,77.162v399.645c0,13.224,10.72,23.942,23.942,23.942h24.344
+            C35.064,500.749,24.344,490.029,24.344,476.807z"/>
+          
+          <path 
+            class="fill-white transition-[fill] duration-300 ease-in-out" 
+            d="M409.05,64.368c-0.4-0.084-0.792-0.168-1.198-0.252C365.254,55.345,311.325,50.514,256,50.514
+            s-109.254,4.831-151.852,13.602c-0.405,0.084-0.796,0.168-1.198,0.252v96.088h306.1V64.368z"/>
+          
+          <path class="opacity-10" d="M165.008,64.117c34.735-7.152,77.006-11.681,121.422-13.11
+            c-10.054-0.324-20.218-0.491-30.43-0.491c-55.325,0-109.254,4.831-151.852,13.602c-0.405,0.084-0.796,0.168-1.198,0.252v96.088
+            h60.86v-96.09C164.211,64.284,164.602,64.201,165.008,64.117z"/>
+          
+          <path class="opacity-10" d="M446.799,222.774H65.201c-10.856,0-19.656,8.8-19.656,19.656v209.963
+            c0,10.856,8.8,19.656,19.656,19.656h381.597c10.856,0,19.656-8.8,19.656-19.656V242.431
+            C466.456,231.575,457.655,222.774,446.799,222.774z"/>
+          
+          <g>
+            <path 
+              class="fill-[#464655] transition-[fill] duration-300 ease-in-out group-hover:fill-[#465546]" 
+              d="M446.799,206.95H65.201c-10.856,0-19.656,8.8-19.656,19.656V436.57
+              c0,10.856,8.8,19.656,19.656,19.656h381.597c10.856,0,19.656-8.8,19.656-19.656V226.608
+              C466.456,215.752,457.655,206.95,446.799,206.95z"/>
+            
+            <path 
+              class="fill-[#464655] transition-[fill] duration-300 ease-in-out group-hover:fill-[#465546]" 
+              d="M143.979,97.957c-2.588,0-5.16-1.094-6.966-3.223L113.448,66.96
+              c-3.262-3.844-2.79-9.605,1.054-12.867c3.845-3.262,9.606-2.79,12.867,1.054l23.565,27.774c3.262,3.844,2.79,9.605-1.054,12.867
+              C148.164,97.245,146.066,97.957,143.979,97.957z"/>
+            
+            <path 
+              class="fill-[#464655] transition-[fill] duration-300 ease-in-out group-hover:fill-[#465546]" 
+              d="M197.425,89.608c-3.485,0-6.813-2.006-8.333-5.391l-12.247-27.272
+              c-2.066-4.6-0.011-10.003,4.589-12.067c4.599-2.066,10.003-0.011,12.067,4.588l12.247,27.272c2.066,4.6,0.011,10.003-4.589,12.067
+              C199.946,89.349,198.675,89.608,197.425,89.608z"/>
+            
+            <path 
+              class="fill-[#464655] transition-[fill] duration-300 ease-in-out group-hover:fill-[#465546]" 
+              d="M368.022,97.957c-2.087,0-4.185-0.712-5.901-2.168c-3.845-3.262-4.317-9.023-1.055-12.867
+              l23.565-27.774c3.262-3.844,9.023-4.316,12.867-1.055c3.845,3.262,4.317,9.023,1.055,12.867l-23.565,27.774
+              C373.182,96.861,370.611,97.957,368.022,97.957z"/>
+            
+            <path 
+              class="fill-[#464655] transition-[fill] duration-300 ease-in-out group-hover:fill-[#465546]" 
+              d="M314.575,89.608c-1.25,0-2.52-0.258-3.734-0.803c-4.599-2.066-6.653-7.469-4.588-12.067
+              l12.249-27.272c2.066-4.6,7.467-6.653,12.068-4.588c4.599,2.066,6.653,7.469,4.588,12.067l-12.249,27.272
+              C321.388,87.601,318.06,89.608,314.575,89.608z"/>
+          </g>
+          
+          <path 
+            class="fill-[#FF6465] transition-[fill] duration-300 ease-in-out group-hover:fill-[#65D965]" 
+            d="M256,136.305c-5.042,0-9.129-4.087-9.129-9.129V78.249c0-5.042,4.087-9.129,9.129-9.129
+            c5.042,0,9.129,4.087,9.129,9.129v48.927C265.129,132.218,261.042,136.305,256,136.305z"/>
+          
+          <path 
+            class="fill-[#464655] transition-[fill] duration-300 ease-in-out group-hover:fill-[#465546]" 
+            d="M222.719,160.457c0-18.38,14.9-33.28,33.28-33.28c18.38,0,33.28,14.9,33.28,33.28H222.719z"/>
+        </svg>
+      </div>
+      <h3 class="text-xl py-2 font-semibold text-gray-700 text-center px-2 leading-tight">
         Obezitate
-      </h3>
-    </a>
-
-    <!-- Card 3: Boli Cardiovasculare -->
-    <a
-      href="#"
-      class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
-    >
-      <svg
-        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-        />
-      </svg>
-      <h3 class="text-base font-semibold text-gray-700 text-center px-2 leading-tight">
-        Boli Cardiovasculare
-      </h3>
-    </a>
-
-    <!-- Card 4: Ciroză -->
-    <a
-      href="#"
-      class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
-    >
-      <svg
-        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21H3z"
-        />
-      </svg>
-      <h3 class="text-base font-semibold text-gray-700 text-center px-2 leading-tight">
-        Ciroză
-      </h3>
-    </a>
-
-    <!-- Card 5: Hipertensiune -->
-    <a
-      href="#"
-      class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
-    >
-      <svg
-        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
-        />
-      </svg>
-      <h3 class="text-base font-semibold text-gray-700 text-center px-2 leading-tight">
-        Hipertensiune
-      </h3>
-    </a>
-
-    <!-- Card 6: Colesterol Ridicat -->
-    <a
-      href="#"
-      class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
-    >
-      <svg
-        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-        />
-      </svg>
-      <h3 class="text-base font-semibold text-gray-700 text-center px-2 leading-tight">
-        Colesterol Ridicat
-      </h3>
-    </a>
-
-    <!-- Card 7: Deficiențe Nutriționale -->
-    <a
-      href="#"
-      class="shadow-lg group relative flex flex-col items-center bg-white rounded-xl p-4 hover:shadow-lg transition-all duration-300 ease-in-out min-h-[160px] justify-center transform hover:-translate-y-2.5"
-    >
-      <svg
-        class="w-12 h-12 mb-3 text-gray-500 group-hover:text-green-600 transition-colors duration-300"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-        />
-      </svg>
-      <h3 class="text-base font-semibold text-gray-700 text-center px-2 leading-tight">
-        Deficiențe Nutriționale
       </h3>
     </a>
 
@@ -397,7 +344,7 @@ function setModalClosedCookie() {
           <div class="flex items-center gap-4">
             <a
             href="/enrollment" 
-              class="inline-flex bg-green-700 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 transition-colors duration-300"
+              class="inline-flex bg-green-600 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-600 transition-colors duration-300"
             >
             Implică-te
             <svg
@@ -415,7 +362,7 @@ function setModalClosedCookie() {
             </a>
             <a
               href="/contact"
-              class="inline-block border-2 border-green-600 text-green-600 font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 hover:text-white transition-colors duration-300"
+              class="inline-block border-2 border-green-600 text-green-600 font-semibold px-6 py-3 rounded shadow-md hover:bg-green-600 hover:text-white transition-colors duration-300"
             >
             Despre noi
             </a>
@@ -436,7 +383,7 @@ function setModalClosedCookie() {
           <div class="flex items-center gap-4">
             <a
             href="/projects" 
-              class="inline-flex bg-green-700 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 transition-colors duration-300"
+              class="inline-flex bg-green-600 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-600 transition-colors duration-300"
             >
             Vezi toate activitățile
             <svg
@@ -557,8 +504,138 @@ function setModalClosedCookie() {
   </div>
 </section>
 
+<div class="max-w-screen-xl mx-auto px-6 mt-20">
+  <h2 class="text-3xl font-bold text-gray-900 mb-8">Echipa Noastră de Voluntari</h2>
+  <p class="text-lg text-gray-600 mb-10">
+    Întâlnește oamenii dedicați care fac posibilă misiunea asociației noastre.
+  </p>
+</div>
+
+<div x-data="{
+  currentIndex: 0,
+  isMobile: window.innerWidth < 768,
+  cardWidth: 100/3,
+  volunteers: [
+      {% for volunteer in volunteers %}
+          {
+              name: '{{ volunteer.name }}',
+              photo: '{{ volunteer.photo.url }}',
+              title: '{{ volunteer.title|default:'Nutritionist' }}',
+              bio: '{{ volunteer.bio|truncatechars:150 }}',
+              instagram: '{{ volunteer.instagram|default:'' }}',
+              facebook: '{{ volunteer.facebook|default:'' }}'
+          },
+      {% endfor %}
+  ],
+  get maxIndex() {
+      return this.isMobile 
+          ? Math.max(this.volunteers.length - 1, 0)
+          : Math.max(this.volunteers.length - 3, 0);
+  },
+  init() {
+    // Update on resize
+    window.addEventListener('resize', () => {
+      this.isMobile = window.innerWidth < 768;
+      this.cardWidth = this.isMobile ? 100 : 100/3;
+      // Reset index if needed
+      if (this.currentIndex > this.maxIndex) this.currentIndex = this.maxIndex;
+    });
+  }
+}" 
+class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-28 overflow-hidden">
+
+  <!-- Carousel Container -->
+  <div class="relative">
+    <div class="flex transition-transform duration-300 ease-out"
+        :style="`transform: translateX(-${currentIndex * cardWidth}%)`">
+        
+        {% for volunteer in volunteers %}
+          <div class="min-w-full md:min-w-[33.333%] px-4 transition-all duration-300">
+              <div 
+                  x-data="{ show: false, hover: false }" 
+                  x-init="setTimeout(() => show = true, {{ forloop.counter0 }}*100)" 
+                  x-show="show" 
+                  @mouseenter="hover = true" 
+                  @mouseleave="hover = false"
+                  x-transition:enter="transition ease-out duration-500" 
+                  x-transition:enter-start="opacity-0 transform scale-95 translate-y-8" 
+                  x-transition:enter-end="opacity-100 transform scale-100 translate-y-0"
+                  class="relative bg-white rounded-2xl shadow-xl border-green-50 group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 mx-2">
+
+                  <!-- Animated Background Effect -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-green-100/30 to-emerald-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  <!-- Volunteer Photo -->
+                  <div class="relative z-10 w-48 h-48 mx-auto -mt-12 rounded-full overflow-hidden border-4 border-white shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+                      <img 
+                          src="{{ volunteer.photo.url }}" 
+                          alt="{{ volunteer.name }}" 
+                          class="w-full h-full object-cover object-center"
+                      >
+                      <div class="absolute inset-0 bg-gradient-to-t from-green-600/30 to-transparent"></div>
+                  </div>
+
+                  <!-- Volunteer Info -->
+                  <div class="relative z-10 px-6 py-8 text-center">
+                      <h3 class="text-2xl font-bold text-gray-800 mb-2">{{ volunteer.name }}</h3>
+                      <div class="mb-4">
+                          <span class="inline-block px-3 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full">
+                              🌟 {{ volunteer.title|default:"Nutriționist" }}
+                          </span>
+                      </div>
+                      <p class="text-gray-600 mb-6 leading-relaxed">
+                          {{ volunteer.bio|truncatechars:150 }}
+                      </p>
+                      
+                      <!-- Social Links -->
+                      <div class="flex justify-center space-x-3 mt-6">
+                          {% if volunteer.instagram %}
+                          <a href="{{ volunteer.instagram }}" target="_blank" 
+                             class="p-2 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                              </svg>
+                          </a>
+                          {% endif %}
+                          
+                          {% if volunteer.facebook %}
+                          <a href="{{ volunteer.facebook }}" target="_blank" 
+                             class="p-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                              </svg>
+                          </a>
+                          {% endif %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button @click="currentIndex = Math.max(currentIndex - 1, 0)"
+    class="absolute top-1/2 left-1 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all z-10"
+    :disabled="currentIndex === 0"
+    :class="{ 'opacity-50 cursor-not-allowed': currentIndex === 0 }">
+    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+    </svg>
+  </button>
+
+  <button @click="currentIndex = Math.min(currentIndex + 1, maxIndex)"
+    class="absolute top-1/2 right-1 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all z-10"
+    :disabled="currentIndex >= maxIndex"
+    :class="{ 'opacity-50 cursor-not-allowed': currentIndex >= maxIndex }">
+    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
 <!-- News Section -->
-<section class="bg-white py-16">
+{% comment %} <section class="bg-white py-16">
   <div class="max-w-screen-xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-gray-900 mb-8">Noutăți și resurse utile</h2>
     <p class="text-lg text-gray-600 mb-10">
@@ -584,37 +661,10 @@ function setModalClosedCookie() {
         <a href="#" class="text-green-700 hover:text-green-900 font-medium">Citește mai mult →</a>
       </div href="{{ post.get_absolute_url }}">
       {% endfor %}
-      {% comment %} <div class="bg-white rounded-lg shadow-lg drop-shadow-lg p-6">
-        <img
-          src="static/common/images/campanie.png"
-          alt="Campanie școli"
-          class="rounded-lg mb-4 w-full h-48 object-cover transition-transform "
-          width={400}
-          height={200}
-        />
-        <div class="mb-3 text-green-600 font-semibold text-sm uppercase">Eveniment</div>
-        <h3 class="text-xl font-semibold mb-2 text-gray-800">Campania națională în școli - ediția 2024</h3>
-        <p class="text-gray-600 mb-4">Înscrie școala ta în programul gratuit de educație nutrițională</p>
-        <a href="#" class="text-green-700 hover:text-green-900 font-medium">Înscrie-te →</a>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-lg drop-shadow-lg p-6">
-        <img
-          src="https:/static/common/images.unsplash.com/photo-1600891964599-f61ba0e24092"
-          alt="Cumpărături sănătoase"
-          class="rounded-lg mb-4 w-full h-48 object-cover transition-transform "
-          width={400}
-          height={200}
-        />
-        <div class="mb-3 text-green-600 font-semibold text-sm uppercase">Ghid practic</div>
-        <h3 class="text-xl font-semibold mb-2 text-gray-800">Cum să alegi alimentele în supermarket</h3>
-        <p class="text-gray-600 mb-4">Învață să citești etichetele nutriționale ca un profesionist</p>
-        <a href="#" class="text-green-700 hover:text-green-900 font-medium">Citește ghidul →</a>
-      </div> {% endcomment %}
 
     </div>
   </div>
-</section>
+</section> {% endcomment %}
 
 <!-- Obesity Stats Section -->
 <section class="bg-gray-50 relative py-16">
@@ -648,13 +698,13 @@ function setModalClosedCookie() {
     <div class="mt-8 flex flex-col md:flex-row gap-4">
       <a
       href="/enrollment" 
-        class="inline-block bg-green-700 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 transition-colors duration-300"
+        class="inline-block bg-green-600 text-white font-semibold px-6 py-3 rounded shadow-md hover:bg-green-600 transition-colors duration-300"
       >
         Devino voluntar
       </a>
       <a
         href="/contact"
-        class="inline-block border-2 border-green-600 text-green-600 font-semibold px-6 py-3 rounded shadow-md hover:bg-green-700 hover:text-white transition-colors duration-300"
+        class="inline-block border-2 border-green-600 text-green-600 font-semibold px-6 py-3 rounded shadow-md hover:bg-green-600 hover:text-white transition-colors duration-300"
       >
         Împărtășește povestea ta
       </a>
@@ -664,7 +714,7 @@ function setModalClosedCookie() {
 
 <!-- BMI Test Section -->
 {% include "common/bmi_section.html" %}
-{% comment %} <section class="w-full bg-green-700 text-white py-16">
+{% comment %} <section class="w-full bg-green-600 text-white py-16">
   <div class="max-w-screen-xl mx-auto px-6 text-center">
     <h2 class="text-3xl md:text-4xl font-bold mb-6">Cunoaște-ți riscul pentru sănătate!</h2>
     <p class="text-lg mb-8">
@@ -700,7 +750,7 @@ function setModalClosedCookie() {
         </p>
         <a
           href="/donation"
-          class="inline-block bg-green-700 text-white px-6 py-3 rounded shadow hover:bg-green-700 transition-colors duration-300"
+          class="inline-block bg-green-600 text-white px-6 py-3 rounded shadow hover:bg-green-600 transition-colors duration-300"
         >
           Redirecționează 3.5% impozit
         </a>

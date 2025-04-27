@@ -45,7 +45,16 @@
          class="fixed inset-0 flex items-center justify-center p-4 z-50"
          @click.away="showBookModal = false">
         
-        <div x-transition class="w-full max-w-md bg-white rounded-xl shadow-xl p-6">
+        <div x-transition class="w-full max-w-md bg-white rounded-xl shadow-xl p-6 relative">
+
+            <!-- Close Button -->
+            <button @click="showBookModal = false" 
+                    class="absolute top-2 right-2 p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
             <div class="text-center">
                 <!-- Success State -->
                 <template x-if="success">
@@ -440,7 +449,7 @@
 </div>
 
 <!-- Secțiunea CTA -->
-<div class="bg-green-700 border-b border-green-800 py-12 mt-16">
+<div class="bg-green-600 border-b border-green-700 py-12 mt-16">
   <div class="max-w-7xl mx-auto px-4 text-center">
     <h2 class="text-2xl font-bold text-white mb-2">Ai nevoie de asistență personalizată?</h2>
     <p class="text-green-100 mb-8 max-w-2xl mx-auto">Suntem disponibili pentru a te ajuta să găsești cele mai bune resurse pentru nevoile tale.</p>

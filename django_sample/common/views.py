@@ -11,7 +11,8 @@ from users.models import EmailSubscription, Profile
 # views.py
 def landing_page(request):
     featured_posts = Post.objects.filter(show_on_landing=True).order_by('-created_at')[:3]  # Get 6 posts max
-    return render(request, 'common/landing_page.html', {'featured_posts': featured_posts})
+    volunteers = Volunteer.objects.filter(is_active=True)
+    return render(request, 'common/landing_page.html', {'featured_posts': featured_posts, 'volunteers': volunteers})
 
 @require_POST
 def subscribe(request):
@@ -48,3 +49,6 @@ def volunteers_view(request):
 def article_view(request, topic):
     template_path = f'common/articles/{topic.lower()}.html'
     return render(request, template_path)
+
+def webinars_view(request):
+    return render(request, 'common/webinars_page.html')

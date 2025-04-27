@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Webinarii | Asociația pentru Promovarea Nutriției Sănătoase{% endblock %}
+
+{% block content %}
+<!-- Secțiunea Banner -->
+<div class="bg-white py-12 border-b border-green-100">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h1 class="text-4xl font-extrabold text-green-700 mb-4">Webinarii & Evenimente Live</h1>
+    <p class="text-gray-600 text-lg">Participă la sesiunile noastre interactive și descoperă cum să adopți un stil de viață sănătos, direct de la experți.</p>
+  </div>
+</div>
+
+<!-- Secțiunea Webinarii -->
+<div class="bg-gray-50 py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      <!-- Card Webinar 1 -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+        <img src="{% static 'images/webinar1.jpg' %}" alt="Nutriția în Viața de Zi cu Zi" class="w-full h-48 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-green-700 mb-2">Nutriția în Viața de Zi cu Zi</h2>
+          <p class="text-gray-600 mb-4">Sfaturi simple pentru a integra obiceiuri alimentare sănătoase în viața de zi cu zi.</p>
+          <a href="#" class="inline-block mt-4 text-green-700 font-medium hover:text-green-900 transition-colors">Vezi detalii →</a>
+        </div>
+      </div>
+
+      <!-- Card Webinar 2 -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+        <img src="{% static 'images/webinar2.jpg' %}" alt="Ghid de Alimentație pentru Familii" class="w-full h-48 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-green-700 mb-2">Ghid de Alimentație pentru Familii</h2>
+          <p class="text-gray-600 mb-4">Învață cum să creezi mese echilibrate și delicioase pentru toți membrii familiei.</p>
+          <a href="#" class="inline-block mt-4 text-green-700 font-medium hover:text-green-900 transition-colors">Vezi detalii →</a>
+        </div>
+      </div>
+
+      <!-- Card Webinar 3 -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+        <img src="{% static 'images/webinar3.jpg' %}" alt="Gestionarea Stresului prin Nutriție" class="w-full h-48 object-cover rounded-t-2xl">
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-green-700 mb-2">Gestionarea Stresului prin Nutriție</h2>
+          <p class="text-gray-600 mb-4">Află cum alimentația sănătoasă te poate ajuta să gestionezi mai bine stresul zilnic.</p>
+          <a href="#" class="inline-block mt-4 text-green-700 font-medium hover:text-green-900 transition-colors">Vezi detalii →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
