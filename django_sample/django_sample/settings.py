@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'common',
     'tailwind',
     'theme',
-    'django_browser_reload',
+    # 'django_browser_reload',
     'blog',
     'course',
     'django.contrib.humanize',
@@ -58,8 +58,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_browser_reload.middleware.BrowserReloadMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    # 'django_browser_reload.middleware.BrowserReloadMiddleware'
 ]
 
 ROOT_URLCONF = 'django_sample.urls'
