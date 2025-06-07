@@ -6,11 +6,14 @@
     <meta charset="UTF-8" />
     <!-- Add responsive viewport meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>My App</title>
+    {% load static %}
+    <title>APNS</title>
+    <link rel="icon" href="{% static 'common/favicon.ico' %}" type="image/x-icon" />
     {% tailwind_css %}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.js"></script>
-    {% load static %}
+    
     <link rel="stylesheet" href="{% static 'common/css/components.css' %}">
+
   </head>
   <!-- Add touch-friendly classes and mobile-optimized text sizing -->
   <body class="min-h-screen flex flex-col text-sm text-gray-700 bg-white w-full touch-auto">
